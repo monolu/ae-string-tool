@@ -1,0 +1,1057 @@
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+	<link href="./inquisition-tool_files/css" rel="stylesheet" type="text/css">
+	<style>
+	
+	*{
+		box-sizing: border-box;
+	}
+
+	body{
+		background-color: #7D726D;
+		margin: 0px;
+		padding: 0px;
+		color: white;
+		font-family: 'FantasqueSansMono NF', 'FantasqueSansMono', 'Roboto Mono', "Lucida Console", Monaco, monospace;
+		font-size: 14px;
+	}
+	img{
+		width: 100%;
+	}
+	input, textarea,select{
+		width: 100%;
+		max-width: 100%;
+		min-width: 100%;
+		font-family: 'Roboto Mono', ;
+		color: #7D726D;
+		box-sizing: border-box;
+		padding: 0.5em;
+		margin: 5px auto 0px;
+		font-weight: bold;
+	}
+
+	label{
+		display: block;
+		margin-top: 20px;
+	}
+	input,select{
+		padding: 5px;
+	}
+		.container{
+			min-height: 100%;
+			overflow: auto;
+			max-width: 600px;
+			background-color: #554742;
+			overflow: auto;
+			margin-right: auto;
+			margin-left: auto;
+			box-sizing: border-box;
+			padding: 0px 15px 40px;
+		}
+			#title{
+				display: block;
+				width: 60%;
+				margin: 0 auto;
+				padding: 0px;
+			}
+			
+		span#r		{ color: #BF1B00 }
+		span#c		{ color: #008065 }
+		span#u_R	{ color: #FF192D }
+		span#u_C	{ color: #36EDF6 }
+		span#g		{ color: #00AC00 }
+		span#y		{ color: #DAA520 }
+		span#u_G	{ color: #A1E577 }
+		span#u_Y	{ color: #F3DF00 }
+		span#b		{ color: #0E68C7 }
+		span#w		{ color: #DBDBDB }
+		span#u_B	{ color: #3680EE }
+		span#u_W	{ color: #FFFFFF }
+		span#m		{ color: #800556 }
+		span#u_D	{ color: #6E6E5C }
+		span#u_M	{ color: #FF00C3 }
+		span#x		{ color: #DBDBDB }
+		span#e		{ color: #5fd75f }
+		span#l		{ color: #5f875f }
+		span#j		{ color: #005f00 }
+		span#n_0	{ color: #afd787 }
+		span#t		{ color: #005faf }
+		span#n		{ color: #000087 }
+		span#i		{ color: #5f00af }
+		span#n_2	{ color: #0087af }
+		span#v		{ color: #af00d7 }
+		span#n_4	{ color: #d75fff }
+		span#s		{ color: #4e4e4e }
+		span#u_E	{ color: #87ff87 }
+		span#u_L	{ color: #afff00 }
+		span#u_J	{ color: #5fffaf }
+		span#n_1	{ color: #d7ffd7 }
+		span#u_T	{ color: #5fafd7 }
+		span#u_N	{ color: #0087ff }
+		span#u_I	{ color: #8787d7 }
+		span#n_3	{ color: #87d7ff }
+		span#u_V	{ color: #af87ff }
+		span#n_5	{ color: #d7afff }
+		span#u_S	{ color: #8a8a8a }
+		span#p		{ color: #af5f87 }
+		span#q		{ color: #87005f }
+		span#n_6	{ color: #d700af }
+		span#n_8	{ color: #5f0000 }
+		span#h		{ color: #ffd700 }
+		span#k		{ color: #d7875f }
+		span#o		{ color: #af5f00 }
+		span#f		{ color: #875f5f }
+		span#u		{ color: #875f00 }
+		span#d		{ color: #303030 }
+		span#u_P	{ color: #ffafd7 }
+		span#u_Q	{ color: #ff00af }
+		span#n_7	{ color: #ff87ff }
+		span#n_9	{ color: #d7005f }
+		span#u_H	{ color: #ffffaf }
+		span#u_K	{ color: #ffd787 }
+		span#u_O	{ color: #ff8700 }
+		span#u_F	{ color: #ffaf5f }
+		span#u_U	{ color: #af8700 }
+
+		span#aaa    { color: #000000 }
+		span#aab    { color: #00005f }
+		span#aac    { color: #000087 }
+		span#aad    { color: #0000af }
+		span#aae    { color: #0000d7 }
+		span#aaf    { color: #0000ff }
+		span#aba    { color: #005f00 }
+		span#abb    { color: #005f5f }
+		span#abc    { color: #005f87 }
+		span#abd    { color: #005faf }
+		span#abe    { color: #005fd7 }
+		span#abf    { color: #005fff }
+		span#aca    { color: #008700 }
+		span#acb    { color: #00875f }
+		span#acc    { color: #008787 }
+		span#acd    { color: #0087af }
+		span#ace    { color: #0087d7 }
+		span#acf    { color: #0087ff }
+		span#ada    { color: #00af00 }
+		span#adb    { color: #00af5f }
+		span#adc    { color: #00af87 }
+		span#add    { color: #00afaf }
+		span#ade    { color: #00afd7 }
+		span#adf    { color: #00afff }
+		span#aea    { color: #00d700 }
+		span#aeb    { color: #00d75f }
+		span#aec    { color: #00d787 }
+		span#aed    { color: #00d7af }
+		span#aee    { color: #00d7d7 }
+		span#aef    { color: #00d7ff }
+		span#afa    { color: #00ff00 }
+		span#afb    { color: #00ff5f }
+		span#afc    { color: #00ff87 }
+		span#afd    { color: #00ffaf }
+		span#afe    { color: #00ffd7 }
+		span#aff    { color: #00ffff }
+		span#baa    { color: #5f0000 }
+		span#bab    { color: #5f005f }
+		span#bac    { color: #5f0087 }
+		span#bad    { color: #5f00af }
+		span#bae    { color: #5f00d7 }
+		span#baf    { color: #5f00ff }
+		span#bba    { color: #5f5f00 }
+		span#bbb    { color: #5f5f5f }
+		span#bbc    { color: #5f5f87 }
+		span#bbd    { color: #5f5faf }
+		span#bbe    { color: #5f5fd7 }
+		span#bbf    { color: #5f5fff }
+		span#bca    { color: #5f8700 }
+		span#bcb    { color: #5f875f }
+		span#bcc    { color: #5f8787 }
+		span#bcd    { color: #5f87af }
+		span#bce    { color: #5f87d7 }
+		span#bcf    { color: #5f87ff }
+		span#bda    { color: #5faf00 }
+		span#bdb    { color: #5faf5f }
+		span#bdc    { color: #5faf87 }
+		span#bdd    { color: #5fafaf }
+		span#bde    { color: #5fafd7 }
+		span#bdf    { color: #5fafff }
+		span#bea    { color: #5fd700 }
+		span#beb    { color: #5fd75f }
+		span#bec    { color: #5fd787 }
+		span#bed    { color: #5fd7af }
+		span#bee    { color: #5fd7d7 }
+		span#bef    { color: #5fd7ff }
+		span#bfa    { color: #5fff00 }
+		span#bfb    { color: #5fff5f }
+		span#bfc    { color: #5fff87 }
+		span#bfd    { color: #5fffaf }
+		span#bfe    { color: #5fffd7 }
+		span#bff    { color: #5fffff }
+		span#caa    { color: #870000 }
+		span#cab    { color: #87005f }
+		span#cac    { color: #870087 }
+		span#cad    { color: #8700af }
+		span#cae    { color: #8700d7 }
+		span#caf    { color: #8700ff }
+		span#cba    { color: #875f00 }
+		span#cbb    { color: #875f5f }
+		span#cbc    { color: #875f87 }
+		span#cbd    { color: #875faf }
+		span#cbe    { color: #875fd7 }
+		span#cbf    { color: #875fff }
+		span#cca    { color: #878700 }
+		span#ccb    { color: #87875f }
+		span#ccc    { color: #878787 }
+		span#ccd    { color: #8787af }
+		span#cce    { color: #8787d7 }
+		span#ccf    { color: #8787ff }
+		span#cda    { color: #87af00 }
+		span#cdb    { color: #87af5f }
+		span#cdc    { color: #87af87 }
+		span#cdd    { color: #87afaf }
+		span#cde    { color: #87afd7 }
+		span#cdf    { color: #87afff }
+		span#cea    { color: #87d700 }
+		span#ceb    { color: #87d75f }
+		span#cec    { color: #87d787 }
+		span#ced    { color: #87d7af }
+		span#cee    { color: #87d7d7 }
+		span#cef    { color: #87d7ff }
+		span#cfa    { color: #87ff00 }
+		span#cfb    { color: #87ff5f }
+		span#cfc    { color: #87ff87 }
+		span#cfd    { color: #87ffaf }
+		span#cfe    { color: #87ffd7 }
+		span#cff    { color: #87ffff }
+		span#daa    { color: #af0000 }
+		span#dab    { color: #af005f }
+		span#dac    { color: #af0087 }
+		span#dad    { color: #af00af }
+		span#dae    { color: #af00d7 }
+		span#daf    { color: #af00ff }
+		span#dba    { color: #af5f00 }
+		span#dbb    { color: #af5f5f }
+		span#dbc    { color: #af5f87 }
+		span#dbd    { color: #af5faf }
+		span#dbe    { color: #af5fd7 }
+		span#dbf    { color: #af5fff }
+		span#dca    { color: #af8700 }
+		span#dcb    { color: #af875f }
+		span#dcc    { color: #af8787 }
+		span#dcd    { color: #af87af }
+		span#dce    { color: #af87d7 }
+		span#dcf    { color: #af87ff }
+		span#dda    { color: #afaf00 }
+		span#ddb    { color: #afaf5f }
+		span#ddc    { color: #afaf87 }
+		span#ddd    { color: #afafaf }
+		span#dde    { color: #afafd7 }
+		span#ddf    { color: #afafff }
+		span#dea    { color: #afd700 }
+		span#deb    { color: #afd75f }
+		span#dec    { color: #afd787 }
+		span#ded    { color: #afd7af }
+		span#dee    { color: #afd7d7 }
+		span#def    { color: #afd7ff }
+		span#dfa    { color: #afff00 }
+		span#dfb    { color: #afff5f }
+		span#dfc    { color: #afff87 }
+		span#dfd    { color: #afffaf }
+		span#dfe    { color: #afffd7 }
+		span#dff    { color: #afffff }
+		span#eaa    { color: #d70000 }
+		span#eab    { color: #d7005f }
+		span#eac    { color: #d70087 }
+		span#ead    { color: #d700af }
+		span#eae    { color: #d700d7 }
+		span#eaf    { color: #d700ff }
+		span#eba    { color: #d75f00 }
+		span#ebb    { color: #d75f5f }
+		span#ebc    { color: #d75f87 }
+		span#ebd    { color: #d75faf }
+		span#ebe    { color: #d75fd7 }
+		span#ebf    { color: #d75fff }
+		span#eca    { color: #d78700 }
+		span#ecb    { color: #d7875f }
+		span#ecc    { color: #d78787 }
+		span#ecd    { color: #d787af }
+		span#ece    { color: #d787d7 }
+		span#ecf    { color: #d787ff }
+		span#eda    { color: #d7af00 }
+		span#edb    { color: #d7af5f }
+		span#edc    { color: #d7af87 }
+		span#edd    { color: #d7afaf }
+		span#ede    { color: #d7afd7 }
+		span#edf    { color: #d7afff }
+		span#eea    { color: #d7d700 }
+		span#eeb    { color: #d7d75f }
+		span#eec    { color: #d7d787 }
+		span#eed    { color: #d7d7af }
+		span#eee    { color: #d7d7d7 }
+		span#eef    { color: #d7d7ff }
+		span#efa    { color: #d7ff00 }
+		span#efb    { color: #d7ff5f }
+		span#efc    { color: #d7ff87 }
+		span#efd    { color: #d7ffaf }
+		span#efe    { color: #d7ffd7 }
+		span#eff    { color: #d7ffff }
+		span#faa    { color: #ff0000 }
+		span#fab    { color: #ff005f }
+		span#fac    { color: #ff0087 }
+		span#fad    { color: #ff00af }
+		span#fae    { color: #ff00d7 }
+		span#faf    { color: #ff00ff }
+		span#fba    { color: #ff5f00 }
+		span#fbb    { color: #ff5f5f }
+		span#fbc    { color: #ff5f87 }
+		span#fbd    { color: #ff5faf }
+		span#fbe    { color: #ff5fd7 }
+		span#fbf    { color: #ff5fff }
+		span#fca    { color: #ff8700 }
+		span#fcb    { color: #ff875f }
+		span#fcc    { color: #ff8787 }
+		span#fcd    { color: #ff87af }
+		span#fce    { color: #ff87d7 }
+		span#fcf    { color: #ff87ff }
+		span#fda    { color: #ffaf00 }
+		span#fdb    { color: #ffaf5f }
+		span#fdc    { color: #ffaf87 }
+		span#fdd    { color: #ffafaf }
+		span#fde    { color: #ffafd7 }
+		span#fdf    { color: #ffafff }
+		span#fea    { color: #ffd700 }
+		span#feb    { color: #ffd75f }
+		span#fec    { color: #ffd787 }
+		span#fed    { color: #ffd7af }
+		span#fee    { color: #ffd7d7 }
+		span#fef    { color: #ffd7ff }
+		span#ffa    { color: #ffff00 }
+		span#ffb    { color: #ffff5f }
+		span#ffc    { color: #ffff87 }
+		span#ffd    { color: #ffffaf }
+		span#ffe    { color: #ffffd7 }
+		span#fff    { color: #ffffff }
+		span#g00    { color: #080808 }
+		span#g01    { color: #121212 }
+		span#g02    { color: #1c1c1c }
+		span#g03    { color: #262626 }
+		span#g04    { color: #303030 }
+		span#g05    { color: #3a3a3a }
+		span#g06    { color: #444444 }
+		span#g07    { color: #4e4e4e }
+		span#g08    { color: #585858 }
+		span#g09    { color: #606060 }
+		span#g10    { color: #666666 }
+		span#g11    { color: #767676 }
+		span#g12    { color: #808080 }
+		span#g13    { color: #8a8a8a }
+		span#g14    { color: #949494 }
+		span#g15    { color: #9e9e9e }
+		span#g16    { color: #a8a8a8 }
+		span#g17    { color: #b2b2b2 }
+		span#g18    { color: #bcbcbc }
+		span#g19    { color: #c6c6c6 }
+		span#g20    { color: #d0d0d0 }
+		span#g21    { color: #dadada }
+		span#g22    { color: #e4e4e4 }
+		span#g23    { color: #eeeeee }
+	
+		.preview{
+			width: 100%;
+			min-height: 2em;
+			padding: 0.5em;
+			background-color: #282a36;
+			word-wrap: break-word;
+			border-radius: 0px 0px 4px 4px;
+		}
+		
+		#output{
+			background-color: #282a36;
+			color: #f8f8f2;
+			min-height: 2em;
+			padding: 5px;
+			white-space: pre-wrap;
+		}
+		
+		.output-options-wrapper{
+			margin-top: 10px;
+			overflow: auto;
+			background-color: #282a36;
+		}
+			.output-options-half{
+				width: 50%;
+				float: left;
+				padding: 10px;
+			}
+			.output-options-spacer{
+				display: block;
+				float: left;
+				width: 100%;
+			}
+			.output-options-half label{
+				font-size: 10px;
+				margin: 0;
+			}
+		.footnote{
+			font-size: 0.8em;
+		}
+		
+	
+	/*--------------------------------
+	OPTIONS BOX
+	--------------------------------*/
+	#options-box{
+		margin: 10px auto;
+		display: block;
+		width: 100%;
+		overflow: auto;
+		text-align: center;
+	}
+	
+		#options-box input[type="checkbox"]{
+			display: none;
+		}
+		#options-box label{
+			cursor: pointer;
+			display: inline-block;
+			padding: 5px 10px;
+			border: 1px solid #282a36;
+			margin: 5px;
+		}
+		#options-box label:hover{
+			background-color: #bd93f9;
+		}
+	
+		#options-box label.extended-desc-shown{
+			color: #f8f8f2;
+			background-color: #282a36;
+		}
+
+	.input-group{
+		opacity: 1;
+		transition: 1s all ease-in-out;
+	}
+	
+	.input-group[data-toggle="false"]{
+		opacity: 0;
+		display: none;
+	}
+	
+	/*--------------------------------
+	RESKIN COLOUR
+	--------------------------------*/
+	body{
+		background-color:#282a36;
+	}
+	input, textarea, select{
+		color: #282a36;
+	}
+
+	select{
+		border-radius: 4px;
+		background-color: #f8f8f2;
+		color: #282a36;
+		border: none;
+	}
+
+	input{
+		background-color: #f8f8f2;
+		border: none;
+		border-radius: 4px 4px 0 0;
+	}
+
+	label{
+		border-radius:4px;
+	}
+
+	.container{
+		background-color: #44475a;
+	}
+	.output-options-wrapper{
+		background-color: #282a36;
+	}
+	h1,label{
+		color: #f8f8f2;
+	}
+	
+	textarea{
+		border-radius: 4px 4px 0 0;
+	}
+	
+	#separator, #target{
+		border-radius: 4px;
+	}
+
+	#output{
+		border-radius: 4px 4px 0 4px;
+		border: none;
+	}
+
+	#notification{
+		margin-top: 10px;
+		margin-bottom: 14px;
+		background-color: #282a36;
+		color: #f8f8f2;
+		padding: 12px 12px;
+		border-radius: 4px;
+	}
+	#notification ul{
+		font-size: 0.7em;
+		padding: 0;
+		padding-left: 3em;
+		margin: 0;
+	}
+	
+	#old-version-link{
+		width: 100%;
+		display: block;
+		text-align: right;
+		font-size: 10px;
+		color: #bd93f9;
+		margin-bottom: 4px;
+	}
+	
+	</style>
+
+</head>
+<body cz-shortcut-listen="true">
+	
+	<div id="main-wrapper" class="container">
+		<div id="notification">
+			<b>Update highlights:</b>
+			<p></p>
+			<ul>
+				<li style="color:#f8f8f2; font-size: 14px"><b>2022/06/28</b></li>
+				<li style="font-size: 14px; font-weight: bold">
+					<i><span id="aaf">Ex</span><span id="abf">te</span><span id="acf">nd</span><span id="adf">ed</span></i> <span id="aef">ex</span><span id="aff">te</span><span id="bff">nd</span><span id="bef">ed</span>
+					<span id="bdf">c</span><span id="bcf">o</span><span id="bbf">l</span><span id="baf">o</span><span id="caf">r</span> 
+					<span id="eaa">s</span><span id="eba">u</span><span id="eca">pp</span><span id="eda">o</span><span id="eea">r</span><span id="efa">t</span>
+					<span id="ffa">a</span><span id="fea">d</span><span id="fda">d</span><span id="fca">e</span><span id="fba">d</span><span id="faa">!</span>
+				</li>
+			</ul>
+			<p></p>
+			<ul>
+				<li style="color:#AAA"><b>2020/12/7</b></li>
+				<li style="color:#AAA">Extended color support added</li>
+				<li style="color:#AAA">added @plate option</li>
+			</ul>
+			<ul style="color: #AAA">
+				<li><b>21/03/2020</b></li>
+				<li>Input fields that should be resizable now are</li>
+				<li>added @smell option</li>
+				<li>added @header/seal text-only fields for screenreaders</li>
+				<li>@header/seal no longer forces @f - still a good idea to encase with {Z</li>
+			</ul>
+			<ul style="color: #AAA">
+				<li><b>14/09/2018</b></li>
+				<li>Keywords now appear at the end of the commands where they belong</li>
+				<li>Copying the output is no longer a challenge of dexterity</li>
+			</ul>
+			<ul style="color: #AAA">
+				<li><b>07/09/2018</b></li>
+				<li>New extended descs</li>
+				<li>Extended descs can be toggled on/off</li>
+				<li>Updating the short desc after writing your long desc won't erase your long desc</li>
+				<li>New styles</li>
+				<li>Optimised the code to reduce 'clear clipboard' commands</li>
+			</ul>
+		</div>
+		<a id="old-version-link" href="http://polyducks.co.uk/hosting/inquisition-tool/old-version.html">Click here for the old version of the tool</a>
+		<a id="old-version-link" href="https://ti-legacy.com/">Click here to return to TI:L's front page</a>
+	
+		<h1>Percival's String Tool</h1>
+		<p style="margin-top: -12px; font-size:12px; color:#bd93f9">(updated by Saga)</p>
+		
+		
+		<div class="input-group">
+			<label for="short" id="short-label" data-default="Short desc">Short desc</label>
+			<input type="text" id="short" class="user-defined-string" data-code="short">
+			<div class="preview" id="short-convert"></div>
+		</div>
+		
+		
+		<div class="input-group">
+			<label for="keywords" id="keywords-label">Keywords</label>
+			<input type="text" id="keywords" data-code="keyword" style="border-radius: 4px 4px 4px 4px;">
+		</div>
+		
+		
+		<div class="input-group">
+			<label for="long" id="long-label" data-default="Long desc">Long desc</label>
+			<input type="text" id="long" class="user-defined-string" data-customised="false" data-code="long">
+			<div class="preview" id="long-convert"></div>
+		</div>
+		
+		
+		<div class="input-group">
+			<label for="extended" id="extended-label">Extended desc (optional)</label>
+			<textarea id="extended" class="user-defined-string" data-code="extended-keywords"></textarea>
+			<div class="preview" id="extended-convert"></div>
+		</div>
+		
+		<!-- OPTIONS BOX -->
+		<div id="options-box">
+			
+			<label id="check-self-label" for="check-self">@self</label>
+			<input id="check-self" data-target="group-self" type="checkbox">
+			
+			<label id="check-others-label" for="check-others">@others</label>
+			<input id="check-others" data-target="group-others" type="checkbox">
+			
+			<label id="check-taste-label" for="check-taste">@taste</label>
+			<input id="check-taste" data-target="group-taste" type="checkbox">
+			
+			<label id="check-eat-label" for="check-eat">@eat</label>
+			<input id="check-eat" data-target="group-eat" type="checkbox">
+			
+			<label id="check-apply-label" for="check-apply">@apply</label>
+			<input id="check-apply" data-target="group-apply" type="checkbox">
+			
+			<label id="check-desc_cloak-label" for="check-desc_cloak">@desc_cloak</label>
+			<input id="check-desc_cloak" data-target="group-desc_cloak" type="checkbox">
+			
+			<label id="check-shop_info-label" for="check-shop_info">@shop_info</label>
+			<input id="check-shop_info" data-target="group-shop_info" type="checkbox">
+			
+			<label id="check-cup-label" for="check-cup">@cup</label>
+			<input id="check-cup" data-target="group-cup" type="checkbox">
+			
+			<label id="check-plate-label" for="check-plate">@plate</label>
+			<input id="check-plate" data-target="group-plate" type="checkbox">
+			
+			<label id="check-seal-label" for="check-seal">@seal</label>
+			<input id="check-seal" data-target="group-seal" type="checkbox">
+			
+			<label id="check-header-label" for="check-header">@header</label>
+			<input id="check-header" data-target="group-header" type="checkbox">
+			
+			<label id="check-smell-label" for="check-smell">@smell</label>
+			<input id="check-smell" data-target="group-smell" type="checkbox">
+			
+		</div>
+		
+		<!-- @SELF -->
+		<div id="group-self" class="input-group" data-toggle="false">
+			<label for="self" id="self-label">@self (what the player sees when the item is used)<br>
+				<span class="footnote">$n for PC's name, $e for he/she/it, $s for his/her/its</span>
+			</label>
+			<textarea type="text" id="self" class="user-defined-string" data-code="extended-@self"></textarea>
+			<div class="preview" id="self-convert"></div>
+		</div>
+		
+		<!-- @OTHERS -->
+		<div id="group-others" class="input-group" data-toggle="false">
+			<label for="others" id="others-label">@others (what others see when the item is used)<br>
+				<span class="footnote">$n for PC's name, $e for he/she/it, $s for his/her/its</span>
+			</label>
+			<textarea type="text" id="others" class="user-defined-string" data-code="extended-@others"></textarea>
+			<div class="preview" id="others-convert"></div>
+		</div>
+		
+		<!-- @TASTE -->
+		<div id="group-taste" class="input-group" data-toggle="false">
+			<label for="taste" id="taste-label">
+				@taste (what the eater sees when the item is consumed)<br>
+				<span class="footnote">$n for PC's name, $e for he/she/it, $s for his/her/its</span>
+			</label>
+			<textarea type="text" id="taste" class="user-defined-string" data-code="extended-@taste"></textarea>
+			<div class="preview" id="taste-convert"></div>
+		</div>
+		
+		<!-- @EAT -->
+		<div id="group-eat" class="input-group" data-toggle="false">
+			<label for="eat" id="eat-label">@eat (what others see when the item is consumed)<br>
+				<span class="footnote">$n for PC's name, $e for he/she/it, $s for his/her/its</span>
+			</label>
+			<textarea type="text" id="eat" class="user-defined-string" data-code="extended-@eat"></textarea>
+			<div class="preview" id="eat-convert"></div>
+		</div>
+		
+		<!-- @APPLY -->
+		<div id="group-apply" class="input-group" data-toggle="false">
+			<label for="apply" id="apply-label">@apply (when a perfume is applied this text will appear in your description as cyan text)<br>
+				<span class="footnote">$n for PC's name, $e for he/she/it, $s for his/her/its</span>
+			</label>
+			<textarea type="text" id="apply" class="user-defined-string" data-code="extended-@apply"></textarea>
+			<div class="preview" id="apply-convert"></div>
+		</div>
+		
+		<!-- @DESC_CLOAK -->
+		<div id="group-desc_cloak" class="input-group" data-toggle="false">
+			<label for="desc_cloak" id="desc_cloak-label">@desc_cloak (what others see when a cloak conceals the player)<br>
+				<span class="footnote">All hooded cloaks must have one of these</span>
+			</label>
+			<textarea type="text" id="desc_cloak" class="user-defined-string" data-code="extended-@desc_cloak"></textarea>
+			<div class="preview" id="desc_cloak-convert"></div>
+		</div>
+		
+		<!-- @SHOP_INFO -->
+		<div id="group-shop_info" class="input-group" data-toggle="false">
+			<label for="shop_info" id="shop_info-label">@shop_info (optional text that shows on appraisal in a shop)<br>
+			</label>
+			<textarea type="text" id="shop_info" class="user-defined-string" data-code="extended-@shop_info"></textarea>
+			<div class="preview" id="shop_info-convert"></div>
+		</div>
+		
+		<!-- @CUP -->
+		<div id="group-cup" class="input-group" data-toggle="false">
+			<label for="cup" id="cup-label">@cup (short desc of an individual cup from a set of cups object)<br>
+			</label>
+			<input type="text" id="cup" class="user-defined-string" data-code="extended-@cup">
+			<div class="preview" id="cup-convert"></div>
+		</div>
+		
+		<!-- @PLATE -->
+		<div id="group-plate" class="input-group" data-toggle="false">
+			<label for="plate" id="plate-label">@plate (short desc of an individual plate from a set of plates object)<br>
+			</label>
+			<input type="text" id="plate" class="user-defined-string" data-code="extended-@plate">
+			<div class="preview" id="plate-convert"></div>
+		</div>
+		
+		<!-- @SEAL -->
+		<div id="group-seal" class="input-group" data-toggle="false">
+			<label for="seal" id="seal-label">@seal (Footer for seal objects)<br>
+			</label>
+			<textarea type="text" id="seal" class="user-defined-string" data-code="extended-@seal"></textarea>
+			<div class="preview" id="seal-convert"></div>
+			
+			<label for="seal_text" id="seal_text-label">@seal_text (Screenreader-friendly footer for seal objects)<br>
+			</label>
+			<textarea type="text" id="seal_text" class="user-defined-string" data-code="extended-@seal_text"></textarea>
+			<div class="preview" id="seal_text-convert"></div>
+		</div>
+		
+		<!-- @HEADER -->
+		<div id="group-header" class="input-group" data-toggle="false">
+			<label for="header" id="header-label">@header (Header for stationery objects)<br>
+			</label>
+			<textarea type="text" id="header" class="user-defined-string" data-code="extended-@header"></textarea>
+			<div class="preview" id="header-convert"></div>
+			
+			<label for="header_text" id="header_text-label">@header_text (Screenreader-friendly header for stationery objects)<br>
+			</label>
+			<textarea type="text" id="header_text" class="user-defined-string" data-code="extended-@header_text"></textarea>
+			<div class="preview" id="header_text-convert"></div>
+		</div>
+		
+		<!-- @SMELL -->
+		<div id="group-smell" class="input-group" data-toggle="false">
+			<label for="smell" id="smell-label">@smell (optional text for when item is sniffed)<br>
+			</label>
+			<textarea type="text" id="smell" class="user-defined-string" data-code="extended-@smell"></textarea>
+			<div class="preview" id="smell-convert"></div>
+		</div>
+		
+		
+		<div class="output-options-wrapper">
+			<div class="output-options-half">
+				<label for="separator">Line separator (leave blank for newline)</label>
+				<input type="text" id="separator">
+			</div>
+			<div class="output-options-half">
+				<label for="tool-type">Tool type</label>
+				<select id="tool-type">
+					<option value="tool">tool</option>
+					<option value="restring">restring</option>
+				</select>
+			</div>
+			<div class="output-options-spacer"></div>
+			<div class="output-options-half">
+				<label for="target">Target object to tool</label>
+				<input type="text" id="target">
+			</div>
+			<div class="output-options-half">
+				<label for="group-tool">Tool all.items</label>
+				<select id="group-tool">
+					<option value="off">off</option>
+					<option value="on">on</option>
+				</select>
+			</div>
+		</div>
+		
+		
+		
+		<label for="output">Output</label>
+		<textarea id="output" rows="10"></textarea>
+		
+		
+		
+	</div>
+	
+	<script>
+	
+		var el = {};
+			el.container =			document.getElementById("main-wrapper");
+			el.short = 				document.getElementById("short");
+			el.short.label = 		document.getElementById("short-label");
+			el.short.convert =		document.getElementById("short-convert");
+			el.keywords =			document.getElementById("keywords");
+			el.long = 				document.getElementById("long");
+			el.long.label =			document.getElementById("long-label");
+			el.long.convert =		document.getElementById("long-convert");
+			el.extended = 			document.getElementById("extended");
+			el.extended.label = 	document.getElementById("extended-label");
+			el.extended.convert =	document.getElementById("extended-convert");
+			el.eat =				document.getElementById("eat");
+			el.eat.label =			document.getElementById("eat-label");
+			el.eat.convert =		document.getElementById("eat-convert");
+			el.taste =				document.getElementById("taste");
+			el.taste.label =		document.getElementById("taste-label");
+			el.taste.convert =		document.getElementById("taste-convert");
+			el.separator =			document.getElementById("separator");
+			el.toolType =			document.getElementById("tool-type");
+			el.target =				document.getElementById("target");
+			el.groupTool = 			document.getElementById("group-tool");
+			el.output =				document.getElementById("output");
+			el.userDefinedStrings = document.getElementsByClassName("user-defined-string");
+			el.options =			document.querySelectorAll("#options-box input[type='checkbox']");
+		
+		//CHARACTER COUNT
+		CharCount = function( target ){
+			var regexp = /{([A-z0-9])|<([A-z0-9]{3})>/g;
+			var labelValue = target.label.getAttribute("data-default");
+			strippedTargetValue = target.value.replace( regexp, "" );
+			var length = strippedTargetValue.length;
+			if ( length > 0 ){
+				labelValue += " (" + length + " chars)";
+			}
+			target.label.innerHTML = labelValue;
+		}
+	
+		//COLOUR CONVERTER
+		function ConvertColours( input, output ){
+			var innerHTML = "<span id='x'>";
+			var regexp = /{([A-z0-9])|<([A-z0-9]{3})>/g;
+			
+			var inputValue = input.value;
+			inputValue = inputValue.replace ( "{[", "[" );
+			inputValue = inputValue.replace ( "{]", "]" );
+			inputValue = inputValue.replace ( "{]", "]" );
+			inputValue = inputValue.replace ( /<([A-z0-9]{2})>/g, "" );
+			inputValue = inputValue.replace ( /<>/g, "" );
+			inputValue = inputValue.replace ( /</g, "\<" );
+			
+			var matches = inputValue.match( regexp );
+			for ( var x in matches ){
+				var stripped_matches = matches[x].replace("{", "");
+				stripped_matches = stripped_matches.replace("<", "");
+				stripped_matches = stripped_matches.replace(">", "");
+				var idValue = stripped_matches;
+				if ( idValue.match(/^[0-9]+$/) != null ){ //CSS IDs can't start with numbers, so prefix a n_ to indicate number
+					idValue = "n_" + idValue;
+				}
+				if ( idValue == idValue.toUpperCase() ){ //CSS is not case sensitive, so prefix a u_ to indicate uppercase
+					idValue = "u_" + idValue;
+				}
+				inputValue = inputValue.replace( matches[x], "</span><spanreservedwordforspacesid='" + idValue + "'>");
+			}
+			
+			inputValue = inputValue.replace ( /\$n/g, "Saga" );
+			inputValue = inputValue.replace ( /\$e/g, "she" );
+			inputValue = inputValue.replace ( /\$s/g, "her" );
+			inputValue = inputValue.replace ( /\{\(/g, "&lt;" );
+			inputValue = inputValue.replace ( /\{\)/g, "&gt;" );
+			inputValue = inputValue.replace ( /\\{\{/g, "{" );
+			inputValue = inputValue.replace ( /\\{\}/g, "}" );
+			inputValue = inputValue.replace ( /(\n|\r|\{\/)/g, "<br/>" );
+			inputValue = inputValue.replace ( /\s/g, "&nbsp;" );
+			inputValue = inputValue.replace ( /reservedwordforspaces/g, " ");
+			
+			innerHTML += inputValue;
+			innerHTML += "</span>";
+			
+			output.innerHTML = innerHTML;
+		}
+		
+		//REMOVE ALL SPECIAL CHARACTERS
+		function RemoveSpecialChars(str){
+			str = str.replace( /(\{.{1})|<([A-z0-9]{3})>/g, "" );
+			str = str.trim();
+			return str;
+		}
+	
+		//AUTOFILL THE LONG DESC
+		function AutofillLong(){
+			var customised = false;
+			var customisedValue = el.long.getAttribute( "data-customised" );
+			if ( customisedValue == "true" ){
+				customised = true;
+			}
+			if ( !customised ){
+				if ( el.short.value ){
+					var shortName = RemoveSpecialChars( el.short.value );
+					var capitalisedShort =  shortName.charAt(0).toUpperCase() + shortName.slice(1);
+					
+					el.long.value = capitalisedShort + " is here.";
+					
+				}else{
+					el.long.value = "";
+				}
+				CharCount( el.long );
+				ConvertColours( el.long, el.long.convert );
+			}
+		}
+	
+		//AUTOFILL KEYWORD
+		function AutofillKeyword(){
+			var regexp = /\w+/g;
+			var keywords = el.keywords.value.match( regexp );
+			if ( keywords ){
+				el.target.placeholder = keywords[0];
+			}else{
+				el.target.placeholder = "";
+			}
+		}
+	
+		//CALCULATE OUTPUT
+		function CalculateOutput(){
+		
+			var tool = el.toolType.value;
+			var keyword = el.target.value || el.target.placeholder;
+			var line = [];
+			var lineSeparator = el.separator.value || "\n";
+			var allPrefix = "";
+			if ( el.groupTool.value == "on" ){
+				allPrefix = "all."
+			}
+			
+			var clipboardUsed = false;
+			
+			for ( var i = 0; i < el.userDefinedStrings.length; i++ ){
+				var definedString = el.userDefinedStrings[i];
+				if ( definedString.value != "" ){
+					var code = definedString.getAttribute("data-code");
+					if ( code.match("extended") ){
+						var codeTarget = code.replace( "extended-", "" );
+						if ( codeTarget == "keywords" ){
+							codeTarget = el.keywords.value;
+						}
+						code = "ed add " + codeTarget;
+						
+						if ( allPrefix.length ){
+							line.push( "clipboard clear" );
+							line.push( "clipboard edit" );
+							line.push( definedString.value );
+							if ( definedString.id == "extended" ||
+								definedString.id == "shop_info" ||
+								//definedString.id == "seal" 		||
+								definedString.id == "seal_text" 	||
+								definedString.id == "smell" 	||
+								//definedString.id == "header" 	||
+								definedString.id == "header_text" 	||
+								definedString.id == "desc_cloak"){
+								line.push( "@f");
+							}
+							line.push( "@x" );
+							line.push( tool + " " + allPrefix + keyword + " " + code );
+							
+							//flag that the clipboard was used so it can be cleaned at the end
+							clipboardUsed = true;
+						}else{
+							line.push( tool + " " + allPrefix + keyword + " " + code );
+							line.push( definedString.value );
+							// only add a format to descs without $n. Formatting an $n
+							// desc will screw it up.
+							if ( definedString.id == "extended" ||
+								definedString.id == "shop_info" ||
+								//definedString.id == "seal" 		||
+								definedString.id == "seal_text" 	||
+								definedString.id == "smell"		||
+								//definedString.id == "header" 	||
+								definedString.id == "header_text" 	||
+								definedString.id == "desc_cloak"){
+								line.push( "@f");
+							}
+							line.push( "@x");
+						}
+					}else{
+						line.push( tool + " " + allPrefix + keyword + " " + code + " " + definedString.value );
+					}
+				}
+			}
+			
+			//add keywords as a final entry
+			if ( el.keywords.value.length ){
+				line.push( tool + " " + allPrefix + keyword + " keyword " + el.keywords.value );
+			}
+			
+			el.output.value = "";
+			for ( x in line ){
+				el.output.value += line[x].replace("/\s/g", "&nbsp;") + lineSeparator;
+			}
+			if ( clipboardUsed ){
+				el.output.value += "clipboard clear";
+			}
+		}
+		
+		
+		
+		for ( var i = 0; i < el.options.length; i++ ){
+			el.options[i].addEventListener("click", function(e){
+				var target = this.getAttribute("data-target");
+				target = document.getElementById( target );
+				var label = document.getElementById( this.id + "-label" );
+				//hide
+				if ( this.getAttribute("data-toggle") == "true" ){
+					this.setAttribute("data-toggle", "false" );
+					target.setAttribute( "data-toggle", "false" );
+					var input = target.querySelector("input");
+					input.value = "";
+					var preview = target.querySelector(".preview");
+					preview.innerHTML = "";
+					label.className = "";
+				//show
+				}else{
+					this.setAttribute("data-toggle", "true" );
+					target.setAttribute( "data-toggle", "true" );
+					label.className = "extended-desc-shown";
+				}
+			});
+		}
+	
+		//EVENT LISTENERS
+		el.container.addEventListener("click", function(e){
+			if ( e.srcElement.id!="output" ){
+				CalculateOutput();
+			}
+		});
+		el.container.addEventListener("keyup", function(e){
+			if ( ["TEXTAREA","INPUT"].indexOf( e.srcElement.tagName ) != -1 &&
+				e.srcElement.id!="output" ){
+				//work out the charcount if the label has a 'data-default' value
+				var label = document.getElementById( e.target.id + "-label");
+				if ( label ){
+					if ( label.getAttribute("data-default") ){
+						CharCount( e.target );
+					}
+				}
+				
+				var preview = document.getElementById( e.target.id + "-convert");
+				if ( preview ){
+					ConvertColours( e.target, preview );
+				}
+				CalculateOutput();
+			}
+		});
+		el.short.addEventListener("keyup", function(){
+			AutofillLong();
+		});
+		el.long.addEventListener("keyup", function(){
+			this.setAttribute("data-customised", "true" );
+			if ( this.value == "" ){
+				this.setAttribute("data-customised", "false" );
+			}else{
+				this.setAttribute("data-customised", "true" );
+			}
+			CharCount( el.long );
+			ConvertColours( el.long, el.long.convert );
+		});
+		
+		el.keywords.addEventListener("keyup", function(){
+			AutofillKeyword();
+		});
+		
+	</script>
+	
+
+</body></html>
