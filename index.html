@@ -1,7 +1,4 @@
-
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-
-	<link href="./inquisition-tool_files/css" rel="stylesheet" type="text/css">
+<html><head><meta http-equiv="Content-Type" content="text/html">
 	<style>
 	
 	*{
@@ -23,7 +20,7 @@
 		width: 100%;
 		max-width: 100%;
 		min-width: 100%;
-		font-family: 'Roboto Mono', ;
+		font-family: 'FantasqueSansMono NF', 'FantasqueSansMono', 'Roboto Mono', "Lucida Console", Monaco, monospace;
 		color: #7D726D;
 		box-sizing: border-box;
 		padding: 0.5em;
@@ -113,7 +110,6 @@
 		span#u_O	{ color: #ff8700 }
 		span#u_F	{ color: #ffaf5f }
 		span#u_U	{ color: #af8700 }
-
 		span#aaa    { color: #000000 }
 		span#aab    { color: #00005f }
 		span#aac    { color: #000087 }
@@ -446,6 +442,17 @@
 		color: #282a36;
 	}
 
+	#reference_box{
+		background: black;
+		width: 320px;
+		padding: 10px;
+		position: absolute;
+		top: 10px;
+		left: 50%;
+		transform: translate(310px, 0);
+		border-radius: 4px;
+	}
+
 	select{
 		border-radius: 4px;
 		background-color: #f8f8f2;
@@ -502,19 +509,28 @@
 	}
 	
 	#old-version-link{
-		width: 100%;
-		display: block;
-		text-align: right;
-		font-size: 10px;
+		text-align: left;
+		font-size: 12px;
 		color: #bd93f9;
 		margin-bottom: 4px;
+	}
+
+	#color-toggle-button{
+		font-family: 'FantasqueSansMono NF', 'FantasqueSansMono', 'Roboto Mono', "Lucida Console", Monaco, monospace;
+		cursor: pointer;
+		color: #bd93f9;
+		float: right;
+		background: none;
+		font-size: 12px;
+		border: none;
+		text-decoration: underline;
 	}
 	
 	</style>
 
 </head>
 <body cz-shortcut-listen="true">
-	
+
 	<div id="main-wrapper" class="container">
 		<div id="notification">
 			<b>Update highlights:</b>
@@ -555,11 +571,11 @@
 				<li>Optimised the code to reduce 'clear clipboard' commands</li>
 			</ul>
 		</div>
-		<a id="old-version-link" href="http://polyducks.co.uk/hosting/inquisition-tool/old-version.html">Click here for the old version of the tool</a>
 		<a id="old-version-link" href="https://ti-legacy.com/">Click here to return to TI:L's front page</a>
+		<button id="color-toggle-button" onclick="toggleColor()">Toggle color reference</button>
 	
 		<h1>Percival's String Tool</h1>
-		<p style="margin-top: -12px; font-size:12px; color:#bd93f9">(updated by Saga)</p>
+		<p style="margin-top: -12px; font-size:14px; color:#bd93f9">(updated by Saga)</p>
 		
 		
 		<div class="input-group">
@@ -773,13 +789,323 @@
 		
 		<label for="output">Output</label>
 		<textarea id="output" rows="10"></textarea>
-		
-		
-		
 	</div>
+	<div id="reference_box" style="display: none;">
+		<span id='aaa'>[aaa]</span>
+		<span id='aab'>[aab]</span>
+		<span id='aac'>[aac]</span>
+		<span id='aad'>[aad]</span>
+		<span id='aae'>[aae]</span>
+		<span id='aaf'>[aaf]</span>
+		<span id='aba'>[aba]</span>
+		<span id='abb'>[abb]</span>
+		<span id='abc'>[abc]</span>
+		<span id='abd'>[abd]</span>
+		<span id='abe'>[abe]</span>
+		<span id='abf'>[abf]</span>
+		<span id='aca'>[aca]</span>
+		<span id='acb'>[acb]</span>
+		<span id='acc'>[acc]</span>
+		<span id='acd'>[acd]</span>
+		<span id='ace'>[ace]</span>
+		<span id='acf'>[acf]</span>
+		<span id='ada'>[ada]</span>
+		<span id='adb'>[adb]</span>
+		<span id='adc'>[adc]</span>
+		<span id='add'>[add]</span>
+		<span id='ade'>[ade]</span>
+		<span id='adf'>[adf]</span>
+		<span id='aea'>[aea]</span>
+		<span id='aeb'>[aeb]</span>
+		<span id='aec'>[aec]</span>
+		<span id='aed'>[aed]</span>
+		<span id='aee'>[aee]</span>
+		<span id='aef'>[aef]</span>
+		<span id='afa'>[afa]</span>
+		<span id='afb'>[afb]</span>
+		<span id='afc'>[afc]</span>
+		<span id='afd'>[afd]</span>
+		<span id='afe'>[afe]</span>
+		<span id='aff'>[aff]</span>
+		<span id='baa'>[baa]</span>
+		<span id='bab'>[bab]</span>
+		<span id='bac'>[bac]</span>
+		<span id='bad'>[bad]</span>
+		<span id='bae'>[bae]</span>
+		<span id='baf'>[baf]</span>
+		<span id='bba'>[bba]</span>
+		<span id='bbb'>[bbb]</span>
+		<span id='bbc'>[bbc]</span>
+		<span id='bbd'>[bbd]</span>
+		<span id='bbe'>[bbe]</span>
+		<span id='bbf'>[bbf]</span>
+		<span id='bca'>[bca]</span>
+		<span id='bcb'>[bcb]</span>
+		<span id='bcc'>[bcc]</span>
+		<span id='bcd'>[bcd]</span>
+		<span id='bce'>[bce]</span>
+		<span id='bcf'>[bcf]</span>
+		<span id='bda'>[bda]</span>
+		<span id='bdb'>[bdb]</span>
+		<span id='bdc'>[bdc]</span>
+		<span id='bdd'>[bdd]</span>
+		<span id='bde'>[bde]</span>
+		<span id='bdf'>[bdf]</span>
+		<span id='bea'>[bea]</span>
+		<span id='beb'>[beb]</span>
+		<span id='bec'>[bec]</span>
+		<span id='bed'>[bed]</span>
+		<span id='bee'>[bee]</span>
+		<span id='bef'>[bef]</span>
+		<span id='bfa'>[bfa]</span>
+		<span id='bfb'>[bfb]</span>
+		<span id='bfc'>[bfc]</span>
+		<span id='bfd'>[bfd]</span>
+		<span id='bfe'>[bfe]</span>
+		<span id='bff'>[bff]</span>
+		<span id='caa'>[caa]</span>
+		<span id='cab'>[cab]</span>
+		<span id='cac'>[cac]</span>
+		<span id='cad'>[cad]</span>
+		<span id='cae'>[cae]</span>
+		<span id='caf'>[caf]</span>
+		<span id='cba'>[cba]</span>
+		<span id='cbb'>[cbb]</span>
+		<span id='cbc'>[cbc]</span>
+		<span id='cbd'>[cbd]</span>
+		<span id='cbe'>[cbe]</span>
+		<span id='cbf'>[cbf]</span>
+		<span id='cca'>[cca]</span>
+		<span id='ccb'>[ccb]</span>
+		<span id='ccc'>[ccc]</span>
+		<span id='ccd'>[ccd]</span>
+		<span id='cce'>[cce]</span>
+		<span id='ccf'>[ccf]</span>
+		<span id='cda'>[cda]</span>
+		<span id='cdb'>[cdb]</span>
+		<span id='cdc'>[cdc]</span>
+		<span id='cdd'>[cdd]</span>
+		<span id='cde'>[cde]</span>
+		<span id='cdf'>[cdf]</span>
+		<span id='cea'>[cea]</span>
+		<span id='ceb'>[ceb]</span>
+		<span id='cec'>[cec]</span>
+		<span id='ced'>[ced]</span>
+		<span id='cee'>[cee]</span>
+		<span id='cef'>[cef]</span>
+		<span id='cfa'>[cfa]</span>
+		<span id='cfb'>[cfb]</span>
+		<span id='cfc'>[cfc]</span>
+		<span id='cfd'>[cfd]</span>
+		<span id='cfe'>[cfe]</span>
+		<span id='cff'>[cff]</span>
+		<span id='daa'>[daa]</span>
+		<span id='dab'>[dab]</span>
+		<span id='dac'>[dac]</span>
+		<span id='dad'>[dad]</span>
+		<span id='dae'>[dae]</span>
+		<span id='daf'>[daf]</span>
+		<span id='dba'>[dba]</span>
+		<span id='dbb'>[dbb]</span>
+		<span id='dbc'>[dbc]</span>
+		<span id='dbd'>[dbd]</span>
+		<span id='dbe'>[dbe]</span>
+		<span id='dbf'>[dbf]</span>
+		<span id='dca'>[dca]</span>
+		<span id='dcb'>[dcb]</span>
+		<span id='dcc'>[dcc]</span>
+		<span id='dcd'>[dcd]</span>
+		<span id='dce'>[dce]</span>
+		<span id='dcf'>[dcf]</span>
+		<span id='dda'>[dda]</span>
+		<span id='ddb'>[ddb]</span>
+		<span id='ddc'>[ddc]</span>
+		<span id='ddd'>[ddd]</span>
+		<span id='dde'>[dde]</span>
+		<span id='ddf'>[ddf]</span>
+		<span id='dea'>[dea]</span>
+		<span id='deb'>[deb]</span>
+		<span id='dec'>[dec]</span>
+		<span id='ded'>[ded]</span>
+		<span id='dee'>[dee]</span>
+		<span id='def'>[def]</span>
+		<span id='dfa'>[dfa]</span>
+		<span id='dfb'>[dfb]</span>
+		<span id='dfc'>[dfc]</span>
+		<span id='dfd'>[dfd]</span>
+		<span id='dfe'>[dfe]</span>
+		<span id='dff'>[dff]</span>
+		<span id='eaa'>[eaa]</span>
+		<span id='eab'>[eab]</span>
+		<span id='eac'>[eac]</span>
+		<span id='ead'>[ead]</span>
+		<span id='eae'>[eae]</span>
+		<span id='eaf'>[eaf]</span>
+		<span id='eba'>[eba]</span>
+		<span id='ebb'>[ebb]</span>
+		<span id='ebc'>[ebc]</span>
+		<span id='ebd'>[ebd]</span>
+		<span id='ebe'>[ebe]</span>
+		<span id='ebf'>[ebf]</span>
+		<span id='eca'>[eca]</span>
+		<span id='ecb'>[ecb]</span>
+		<span id='ecc'>[ecc]</span>
+		<span id='ecd'>[ecd]</span>
+		<span id='ece'>[ece]</span>
+		<span id='ecf'>[ecf]</span>
+		<span id='eda'>[eda]</span>
+		<span id='edb'>[edb]</span>
+		<span id='edc'>[edc]</span>
+		<span id='edd'>[edd]</span>
+		<span id='ede'>[ede]</span>
+		<span id='edf'>[edf]</span>
+		<span id='eea'>[eea]</span>
+		<span id='eeb'>[eeb]</span>
+		<span id='eec'>[eec]</span>
+		<span id='eed'>[eed]</span>
+		<span id='eee'>[eee]</span>
+		<span id='eef'>[eef]</span>
+		<span id='efa'>[efa]</span>
+		<span id='efb'>[efb]</span>
+		<span id='efc'>[efc]</span>
+		<span id='efd'>[efd]</span>
+		<span id='efe'>[efe]</span>
+		<span id='eff'>[eff]</span>
+		<span id='faa'>[faa]</span>
+		<span id='fab'>[fab]</span>
+		<span id='fac'>[fac]</span>
+		<span id='fad'>[fad]</span>
+		<span id='fae'>[fae]</span>
+		<span id='faf'>[faf]</span>
+		<span id='fba'>[fba]</span>
+		<span id='fbb'>[fbb]</span>
+		<span id='fbc'>[fbc]</span>
+		<span id='fbd'>[fbd]</span>
+		<span id='fbe'>[fbe]</span>
+		<span id='fbf'>[fbf]</span>
+		<span id='fca'>[fca]</span>
+		<span id='fcb'>[fcb]</span>
+		<span id='fcc'>[fcc]</span>
+		<span id='fcd'>[fcd]</span>
+		<span id='fce'>[fce]</span>
+		<span id='fcf'>[fcf]</span>
+		<span id='fda'>[fda]</span>
+		<span id='fdb'>[fdb]</span>
+		<span id='fdc'>[fdc]</span>
+		<span id='fdd'>[fdd]</span>
+		<span id='fde'>[fde]</span>
+		<span id='fdf'>[fdf]</span>
+		<span id='fea'>[fea]</span>
+		<span id='feb'>[feb]</span>
+		<span id='fec'>[fec]</span>
+		<span id='fed'>[fed]</span>
+		<span id='fee'>[fee]</span>
+		<span id='fef'>[fef]</span>
+		<span id='ffa'>[ffa]</span>
+		<span id='ffb'>[ffb]</span>
+		<span id='ffc'>[ffc]</span>
+		<span id='ffd'>[ffd]</span>
+		<span id='ffe'>[ffe]</span>
+		<span id='fff'>[fff]</span>
+		<span id='g00'>[g00]</span>
+		<span id='g01'>[g01]</span>
+		<span id='g02'>[g02]</span>
+		<span id='g03'>[g03]</span>
+		<span id='g04'>[g04]</span>
+		<span id='g05'>[g05]</span>
+		<span id='g06'>[g06]</span>
+		<span id='g07'>[g07]</span>
+		<span id='g08'>[g08]</span>
+		<span id='g09'>[g09]</span>
+		<span id='g10'>[g10]</span>
+		<span id='g11'>[g11]</span>
+		<span id='g12'>[g12]</span>
+		<span id='g13'>[g13]</span>
+		<span id='g14'>[g14]</span>
+		<span id='g15'>[g15]</span>
+		<span id='g16'>[g16]</span>
+		<span id='g17'>[g17]</span>
+		<span id='g18'>[g18]</span>
+		<span id='g19'>[g19]</span>
+		<span id='g20'>[g20]</span>
+		<span id='g21'>[g21]</span>
+		<span id='g22'>[g22]</span>
+		<span id='g23'>[g23]</span>
+	</br></br>
+		Old Colors:
+	</br>
+		<span id='r'>[ r ]</span>
+		<span id='c'>[ c ]</span>
+		<span id='u_R'>[ R ]</span>
+		<span id='u_C'>[ C ]</span>
+		<span id='g'>[ g ]</span>
+		<span id='y'>[ y ]</span>
+		<span id='u_G'>[ G ]</span>
+		<span id='u_Y'>[ Y ]</span>
+		<span id='b'>[ b ]</span>
+		<span id='w'>[ w ]</span>
+		<span id='u_B'>[ B ]</span>
+		<span id='u_W'>[ W ]</span>
+		<span id='m'>[ m ]</span>
+		<span id='u_D'>[ D ]</span>
+		<span id='u_M'>[ M ]</span>
+		<span id='x'>[ x ]</span>
+		<span id='e'>[ e ]</span>
+		<span id='l'>[ l ]</span>
+		<span id='j'>[ j ]</span>
+		<span id='n_0'>[ 0 ]</span>
+		<span id='t'>[ t ]</span>
+		<span id='n'>[ n ]</span>
+		<span id='i'>[ i ]</span>
+		<span id='n_2'>[ 2 ]</span>
+		<span id='v'>[ v ]</span>
+		<span id='n_4'>[ 4 ]</span>
+		<span id='s'>[ s ]</span>
+		<span id='u_E'>[ E ]</span>
+		<span id='u_L'>[ L ]</span>
+		<span id='u_J'>[ J ]</span>
+		<span id='n_1'>[ 1 ]</span>
+		<span id='u_T'>[ T ]</span>
+		<span id='u_N'>[ N ]</span>
+		<span id='u_I'>[ I ]</span>
+		<span id='n_3'>[ 3 ]</span>
+		<span id='u_V'>[ V ]</span>
+		<span id='n_5'>[ 5 ]</span>
+		<span id='u_S'>[ S ]</span>
+		<span id='p'>[ p ]</span>
+		<span id='q'>[ q ]</span>
+		<span id='n_6'>[ 6 ]</span>
+		<span id='n_8'>[ 8 ]</span>
+		<span id='h'>[ h ]</span>
+		<span id='k'>[ k ]</span>
+		<span id='o'>[ o ]</span>
+		<span id='f'>[ f ]</span>
+		<span id='u'>[ u ]</span>
+		<span id='d'>[ d ]</span>
+		<span id='u_P'>[ P ]</span>
+		<span id='u_Q'>[ Q ]</span>
+		<span id='n_7'>[ 7 ]</span>
+		<span id='n_9'>[ 9 ]</span>
+		<span id='u_H'>[ H ]</span>
+		<span id='u_K'>[ K ]</span>
+		<span id='u_O'>[ O ]</span>
+		<span id='u_F'>[ F ]</span>
+		<span id='u_U'>[ U ]</span>
+	</div>
+
+
 	
 	<script>
-	
+		
+		function toggleColor() {
+			var ref_div = document.getElementById("reference_box")
+			if ( ref_div.style.display !== "none" ) {
+				ref_div.style.display = "none";
+			} else {
+				ref_div.style.display = "block";
+			}
+		}
+
 		var el = {};
 			el.container =			document.getElementById("main-wrapper");
 			el.short = 				document.getElementById("short");
@@ -983,9 +1309,7 @@
 				el.output.value += "clipboard clear";
 			}
 		}
-		
-		
-		
+
 		for ( var i = 0; i < el.options.length; i++ ){
 			el.options[i].addEventListener("click", function(e){
 				var target = this.getAttribute("data-target");
