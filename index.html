@@ -1324,12 +1324,18 @@
 				var target = this.getAttribute("data-target");
 				target = document.getElementById( target );
 				var label = document.getElementById( this.id + "-label" );
+                console.log(label);
 				//hide
 				if ( this.getAttribute("data-toggle") == "true" ){
 					this.setAttribute("data-toggle", "false" );
 					target.setAttribute( "data-toggle", "false" );
 					var input = target.querySelector("input");
-					input.value = "";
+                    var textarea = target.querySelector("textarea")
+                    if ( this.getAttribute("id") === "check-cup" || this.getAttribute("id") === "check-plate" ){
+                        input.value = "";
+                    }else{
+                        textarea.value = "";
+                    }
 					var preview = target.querySelector(".preview");
 					preview.innerHTML = "";
 					label.className = "";
