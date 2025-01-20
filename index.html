@@ -1,4 +1,8 @@
 <html><head><meta http-equiv="Content-Type" content="text/html">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
 	<style>
 	
 	*{
@@ -9,8 +13,8 @@
 		background-color: #7D726D;
 		margin: 0px;
 		padding: 0px;
-		color: white;
-		font-family: 'FantasqueSansMono NF', 'FantasqueSansMono', 'Roboto Mono', "Lucida Console", Monaco, monospace;
+		color: #e8d8c7;
+		font-family: "Space Mono", Monaco, monospace;
 		font-size: 14px;
 	}
 	img{
@@ -20,13 +24,16 @@
 		width: 100%;
 		max-width: 100%;
 		min-width: 100%;
-		font-family: 'FantasqueSansMono NF', 'FantasqueSansMono', 'Roboto Mono', "Lucida Console", Monaco, monospace;
+		font-family: "Space Mono", Monaco, monospace;
 		color: #7D726D;
 		box-sizing: border-box;
 		padding: 0.5em;
 		margin: 5px auto 0px;
-		font-weight: bold;
 		font-size: 14px;
+	}
+
+	option {
+		background: #142030;
 	}
 
 	label{
@@ -34,7 +41,8 @@
 		margin-top: 20px;
 	}
 	input,select{
-		padding: 0.5em;
+		padding: 9px;
+		height: 38px;
 		font-size: 14px;
 	}
 		.container{
@@ -358,15 +366,13 @@
 			font-size: 14px;
 			min-height: 2em;
 			padding: 0.5em;
-			background-color: black;
+			background-color: rgb(0, 0, 0, 0.4);
 			word-wrap: break-word;
 			border-radius: 0px 0px 4px 4px;
 		}
 		
 		#output{
 			font-weight: normal;
-			background-color: #282a36;
-			color: #f8f8f2;
 			min-height: 2em;
 			padding: 5px;
 			white-space: pre-wrap;
@@ -407,7 +413,7 @@
     		-ms-user-select: none;
     		-o-user-select: none;
    		user-select: none;
-		margin: 10px auto;
+		margin: 30px auto;
 		display: block;
 		width: 100%;
 		overflow: auto;
@@ -420,17 +426,19 @@
 		#options-box label{
 			cursor: pointer;
 			display: inline-block;
-			padding: 5px 10px;
-			border: 1px solid #282a36;
-			margin: 5px;
+			padding: 9px;
+			margin: 3px;
+			background: rgba(0, 0, 0, 0.25);
 		}
 		#options-box label:hover{
-			background-color: #bd93f9;
+			background-color: #732654;
 		}
 	
 		#options-box label.extended-desc-shown{
-			color: #f8f8f2;
-			background-color: #282a36;
+			color: #e8d8c7;
+			background: linear-gradient(60deg, rgba(115,38,84,1) 0%, rgba(255,91,141,1) 80%, rgba(232,216,199,1) 100%);
+			border: none;
+			padding: 9px;
 		}
 
 	.input-group{
@@ -447,10 +455,13 @@
 	RESKIN COLOUR
 	--------------------------------*/
 	body{
-		background-color:#282a36;
+		background: rgb(232,216,199);
+		background: radial-gradient(circle, rgba(232,216,199,1) 0%, rgba(255,91,141,1) 10%, rgba(115,38,84,1) 50%, rgba(20,32,48,1) 100%);
 	}
+
 	input, textarea, select{
-		color: #282a36;
+		color: #142030;
+		scrollbar-color: rgba(0, 0, 0, 0.4) #E8D8C7;
 	}
 
 	#reference_box{
@@ -470,15 +481,24 @@
 
 	select{
 		border-radius: 4px;
-		background-color: #f8f8f2;
-		color: #282a36;
+		background: rgba(0, 0, 0, 0.25);
+		color: #E8D8C7;
 		border: none;
 	}
 
 	input{
-		background-color: #f8f8f2;
+		background: rgba(0, 0, 0, 0.25);
+		color: #E8D8C7;
 		border: none;
 		border-radius: 4px 4px 0 0;
+	}
+
+	input:focus {
+		outline: 1px solid #E8D8C7;
+	}
+
+	select:focus {
+		outline: 1px solid #E8D8C7;
 	}
 
 	label{
@@ -486,18 +506,26 @@
 	}
 
 	.container{
-		background-color: #44475a;
+		background: #142030;
 	}
 	.output-options-wrapper{
-		background-color: #282a36;
+		background: linear-gradient(45deg, rgba(115,38,84,1) 0%, rgba(255,91,141,1) 80%, rgba(232,216,199,1) 100%);
 		border-radius: 4px;
 	}
 	h1,label{
-		color: #f8f8f2;
+		color: #e8d8c7;
 	}
 	
 	textarea{
+		color: #e8d8c7;
 		border-radius: 4px 4px 0 0;
+		background: rgba(0, 0, 0, 0.25);
+		border: none;
+		white-space: pre-wrap;
+	}
+
+	textarea:focus {
+		outline: 1px solid #E8D8C7;
 	}
 	
 	#separator, #target{
@@ -512,10 +540,14 @@
 	#notification{
 		margin-top: 10px;
 		margin-bottom: 14px;
-		background-color: #282a36;
-		color: #f8f8f2;
+		background-color: rgba(0, 0, 0, 0.4);
+		color: #e8d8c7;
 		padding: 12px 12px;
 		border-radius: 4px;
+		height: 106px;
+		overflow-y: scroll;
+		scrollbar-width: thin; 
+		scrollbar-color: #e8d8c7 #0D131D;
 	}
 	#notification ul{
 		font-size: 0.7em;
@@ -523,18 +555,11 @@
 		padding-left: 3em;
 		margin: 0;
 	}
-	
-	#old-version-link{
-		text-align: left;
-		font-size: 12px;
-		color: #bd93f9;
-		margin-bottom: 4px;
-	}
 
 	#color-toggle-button{
-		font-family: 'FantasqueSansMono NF', 'FantasqueSansMono', 'Roboto Mono', "Lucida Console", Monaco, monospace;
+		font-family: "Space Mono", Monaco, monospace;
 		cursor: pointer;
-		color: #bd93f9;
+		color: #FF5B8D;
 		float: right;
 		background: none;
 		font-size: 12px;
@@ -548,23 +573,23 @@
 <body cz-shortcut-listen="true">
 
 	<div id="main-wrapper" class="container">
-		<div id="notification">
-			<b>Update highlights:</b>
+		<div style="color:#e8d8c7" id="notification">
+			<b >Update highlights:</b>
 			<p></p>
 			<ul>
-				<li style="color:#f8f8f2; font-size: 14px"><b>2022/06/28</b></li>
-				<li style="font-size: 14px; font-weight: bold">
-					<i><span id="aaf">Ex</span><span id="abf">te</span><span id="acf">nd</span><span id="adf">ed</span></i> <span id="aef">ex</span><span id="aff">te</span><span id="bff">nd</span><span id="bef">ed</span>
-					<span id="bdf">c</span><span id="bcf">o</span><span id="bbf">l</span><span id="baf">o</span><span id="caf">r</span> 
-					<span id="eaa">s</span><span id="eba">u</span><span id="eca">pp</span><span id="eda">o</span><span id="eea">r</span><span id="efa">t</span>
-					<span id="ffa">a</span><span id="fea">d</span><span id="fda">d</span><span id="fca">e</span><span id="fba">d</span><span id="faa">!</span>
-				</li>
+				<li style="font-size: 14px"><b>2025/01/20</b></li>
+				<li style="font-size: 14px"">Rudimentary AE2 support added!</li>
 			</ul>
 			<p></p>
-			<ul>
-				<li style="color:#AAA"><b>2020/12/7</b></li>
-				<li style="color:#AAA">Extended color support added</li>
-				<li style="color:#AAA">added @plate option</li>
+			<ul style="color: #AAA">
+				<li><b>2022/06/28</b></li>
+				<li><i>Extended</i> extended color support added</li>
+				<li>added @plate option</li>
+			</ul>
+			<ul style="color: #AAA">
+				<li><b>2020/12/7</b></li>
+				<li>Extended color support added</li>
+				<li>added @plate option</li>
 			</ul>
 			<ul style="color: #AAA">
 				<li><b>21/03/2020</b></li>
@@ -587,11 +612,11 @@
 				<li>Optimised the code to reduce 'clear clipboard' commands</li>
 			</ul>
 		</div>
-		<a id="old-version-link" href="https://ti-legacy.com/">Click here to return to TI:L's front page</a>
 		<button id="color-toggle-button" onclick="toggleColor()">Toggle color reference</button>
 	
-		<h1>Percival's String Tool</h1>
-		<p style="margin-top: -12px; font-size:14px; color:#bd93f9">(updated by Saga)</p>
+		<div style="font-size:1.5em">
+			<span style="color:#FF5B8D; background:#FF5B8D">Percival's</span> Iris's String Tool
+		</div>
 		
 		
 		<div class="input-group">
@@ -628,43 +653,51 @@
 			
 			<label id="check-others-label" for="check-others">@others</label>
 			<input id="check-others" data-target="group-others" type="checkbox">
+
+			<label id="check-eat-label" for="check-eat">@eat</label>
+			<input id="check-eat" data-target="group-eat" type="checkbox">
 			
 			<label id="check-taste-label" for="check-taste">@taste</label>
 			<input id="check-taste" data-target="group-taste" type="checkbox">
 			
-			<label id="check-eat-label" for="check-eat">@eat</label>
-			<input id="check-eat" data-target="group-eat" type="checkbox">
-			
 			<label id="check-apply-label" for="check-apply">@apply</label>
 			<input id="check-apply" data-target="group-apply" type="checkbox">
-			
+
+			<label id="check-shop_info-label" for="check-shop_info">@shop_info</label>
+			<input id="check-shop_info" data-target="group-shop_info" type="checkbox">
+
 			<label id="check-desc_cloak-label" for="check-desc_cloak">@desc_cloak</label>
 			<input id="check-desc_cloak" data-target="group-desc_cloak" type="checkbox">
 			
-			<label id="check-shop_info-label" for="check-shop_info">@shop_info</label>
-			<input id="check-shop_info" data-target="group-shop_info" type="checkbox">
-			
 			<label id="check-cup-label" for="check-cup">@cup</label>
 			<input id="check-cup" data-target="group-cup" type="checkbox">
+
+			<label id="check-header-label" for="check-header">@header</label>
+			<input id="check-header" data-target="group-header" type="checkbox">
+
+			<label id="check-wear-label" for="check-wear">@wear</label>
+			<input id="check-wear" data-target="group-wear" type="checkbox">
+
+			<label id="check-smell-label" for="check-smell">@smell</label>
+			<input id="check-smell" data-target="group-smell" type="checkbox">
+
+			<label id="check-operate-label" for="check-operate">@operate</label>
+			<input id="check-operate" data-target="group-operate" type="checkbox">
+
+			<label id="check-smoke-label" for="check-smoke">@smoke</label>
+			<input id="check-smoke" data-target="group-smoke" type="checkbox">
 			
 			<label id="check-plate-label" for="check-plate">@plate</label>
 			<input id="check-plate" data-target="group-plate" type="checkbox">
 			
-			<label id="check-seal-label" for="check-seal">@seal</label>
-			<input id="check-seal" data-target="group-seal" type="checkbox">
-			
-			<label id="check-header-label" for="check-header">@header</label>
-			<input id="check-header" data-target="group-header" type="checkbox">
-			
-			<label id="check-smell-label" for="check-smell">@smell</label>
-			<input id="check-smell" data-target="group-smell" type="checkbox">
-			
+			<label id="check-use-label" for="check-use">@use</label>
+			<input id="check-use" data-target="group-use" type="checkbox">
 		</div>
 		
 		<!-- @SELF -->
 		<div id="group-self" class="input-group" data-toggle="false">
-			<label for="self" id="self-label">@self (what the player sees when the item is used)<br>
-				<span class="footnote">$n for PC's name, $e for he/she/it, $s for his/her/its</span>
+			<label for="self" id="self-label">@self (For items that can be used, displays what is seen by the user.)<br>
+				<span class="footnote"><br>$n for PC's name, $e for he/she/they/it, $s for his/her/their/its, $m for him/her/them/it</span>
 			</label>
 			<textarea type="text" id="self" class="user-defined-string" data-code="extended-@self"></textarea>
 			<div class="preview" id="self-convert"></div>
@@ -672,106 +705,129 @@
 		
 		<!-- @OTHERS -->
 		<div id="group-others" class="input-group" data-toggle="false">
-			<label for="others" id="others-label">@others (what others see when the item is used)<br>
-				<span class="footnote">$n for PC's name, $e for he/she/it, $s for his/her/its</span>
+			<label for="others" id="others-label">@others (For items that can be used, displays what is seen by others.)<br>
+				<span class="footnote"><br>$n for PC's name, $e for he/she/they/it, $s for his/her/their/its, $m for him/her/them/it</span>
 			</label>
 			<textarea type="text" id="others" class="user-defined-string" data-code="extended-@others"></textarea>
 			<div class="preview" id="others-convert"></div>
 		</div>
-		
+
+		<!-- @EAT -->
+		<div id="group-eat" class="input-group" data-toggle="false">
+			<label for="eat" id="eat-label">@eat (Shown to others when an item is eaten.)<br>
+				<span class="footnote"><br>$n for PC's name, $e for he/she/they/it, $s for his/her/their/its, $m for him/her/them/it</span>
+			</label>
+			<textarea type="text" id="eat" class="user-defined-string" data-code="extended-@eat"></textarea>
+			<div class="preview" id="eat-convert"></div>
+		</div>
+
 		<!-- @TASTE -->
 		<div id="group-taste" class="input-group" data-toggle="false">
-			<label for="taste" id="taste-label">
-				@taste (what the eater sees when the item is consumed)<br>
-				<span class="footnote">$n for PC's name, $e for he/she/it, $s for his/her/its</span>
+			<label for="taste" id="taste-label">@taste (Shown to the player when an item is eaten, typically flavors.)<br>
+				<span class="footnote"><br>$n for PC's name, $e for he/she/they/it, $s for his/her/their/its, $m for him/her/them/it</span>
 			</label>
 			<textarea type="text" id="taste" class="user-defined-string" data-code="extended-@taste"></textarea>
 			<div class="preview" id="taste-convert"></div>
 		</div>
 		
-		<!-- @EAT -->
-		<div id="group-eat" class="input-group" data-toggle="false">
-			<label for="eat" id="eat-label">@eat (what others see when the item is consumed)<br>
-				<span class="footnote">$n for PC's name, $e for he/she/it, $s for his/her/its</span>
-			</label>
-			<textarea type="text" id="eat" class="user-defined-string" data-code="extended-@eat"></textarea>
-			<div class="preview" id="eat-convert"></div>
-		</div>
-		
 		<!-- @APPLY -->
 		<div id="group-apply" class="input-group" data-toggle="false">
-			<label for="apply" id="apply-label">@apply (when a perfume is applied this text will appear in your description as cyan text)<br>
-				<span class="footnote">$n for PC's name, $e for he/she/it, $s for his/her/its</span>
+			<label for="apply" id="apply-label">@apply (Appends to the end of the user's description when item is applied.)<br>
+				<span class="footnote"><br>$n for PC's name, $e for he/she/they/it, $s for his/her/their/its, $m for him/her/them/it</span>
 			</label>
 			<textarea type="text" id="apply" class="user-defined-string" data-code="extended-@apply"></textarea>
 			<div class="preview" id="apply-convert"></div>
 		</div>
-		
-		<!-- @DESC_CLOAK -->
-		<div id="group-desc_cloak" class="input-group" data-toggle="false">
-			<label for="desc_cloak" id="desc_cloak-label">@desc_cloak (what others see when a cloak conceals the player)<br>
-				<span class="footnote">All hooded cloaks must have one of these</span>
-			</label>
-			<textarea type="text" id="desc_cloak" class="user-defined-string" data-code="extended-@desc_cloak"></textarea>
-			<div class="preview" id="desc_cloak-convert"></div>
-		</div>
-		
+
 		<!-- @SHOP_INFO -->
 		<div id="group-shop_info" class="input-group" data-toggle="false">
-			<label for="shop_info" id="shop_info-label">@shop_info (optional text that shows on appraisal in a shop)<br>
+			<label for="shop_info" id="shop_info-label">@shop_info (Displays when an item is appraised with 'appraise shop'.)<br>
 			</label>
 			<textarea type="text" id="shop_info" class="user-defined-string" data-code="extended-@shop_info"></textarea>
 			<div class="preview" id="shop_info-convert"></div>
 		</div>
-		
+
+		<!-- @DESC_CLOAK -->
+		<div id="group-desc_cloak" class="input-group" data-toggle="false">
+			<label for="desc_cloak" id="desc_cloak-label">@desc_cloak (For hooded cloaks, displays as player's desc when concealed.)<br>
+				<span class="footnote"><br>All hooded cloaks must have one of these.</span>
+			</label>
+			<textarea type="text" id="desc_cloak" class="user-defined-string" data-code="extended-@desc_cloak"></textarea>
+			<div class="preview" id="desc_cloak-convert"></div>
+		</div>
+
 		<!-- @CUP -->
 		<div id="group-cup" class="input-group" data-toggle="false">
-			<label for="cup" id="cup-label">@cup (short desc of an individual cup from a set of cups object)<br>
+			<label for="cup" id="cup-label">@cup (For cup sets, cups served from it will display this as their string.)<br>
+				<span class="footnote"><br>Must be 59 characters or less.</span>
 			</label>
 			<input type="text" id="cup" class="user-defined-string" data-code="extended-@cup">
 			<div class="preview" id="cup-convert"></div>
 		</div>
-		
-		<!-- @PLATE -->
-		<div id="group-plate" class="input-group" data-toggle="false">
-			<label for="plate" id="plate-label">@plate (short desc of an individual plate from a set of plates object)<br>
-			</label>
-			<input type="text" id="plate" class="user-defined-string" data-code="extended-@plate">
-			<div class="preview" id="plate-convert"></div>
-		</div>
-		
-		<!-- @SEAL -->
-		<div id="group-seal" class="input-group" data-toggle="false">
-			<label for="seal" id="seal-label">@seal (Footer for seal objects)<br>
-			</label>
-			<textarea type="text" id="seal" class="user-defined-string" data-code="extended-@seal"></textarea>
-			<div class="preview" id="seal-convert"></div>
-			
-			<label for="seal_text" id="seal_text-label">@seal_text (Screenreader-friendly footer for seal objects)<br>
-			</label>
-			<textarea type="text" id="seal_text" class="user-defined-string" data-code="extended-@seal_text"></textarea>
-			<div class="preview" id="seal_text-convert"></div>
-		</div>
-		
+
 		<!-- @HEADER -->
 		<div id="group-header" class="input-group" data-toggle="false">
-			<label for="header" id="header-label">@header (Header for stationery objects)<br>
+			<label for="header" id="header-label">@header (For stationery objects, becomes the header when used with a courier profile.)<br>
 			</label>
 			<textarea type="text" id="header" class="user-defined-string" data-code="extended-@header"></textarea>
 			<div class="preview" id="header-convert"></div>
 			
-			<label for="header_text" id="header_text-label">@header_text (Screenreader-friendly header for stationery objects)<br>
+			<label for="header_text" id="header_text-label">@header_text (Screenreader-friendly header.)<br>
 			</label>
 			<textarea type="text" id="header_text" class="user-defined-string" data-code="extended-@header_text"></textarea>
 			<div class="preview" id="header_text-convert"></div>
 		</div>
-		
+
+		<!-- @WEAR -->
+		<div id="group-wear" class="input-group" data-toggle="false">
+			<label for="wear" id="wear-label">@wear (Starts with #, provides a custom message when a player wears the object. To use, place #[what the wearer sees] and #[what everyone else sees] on separate lines.)<br>
+				<span class="footnote"><br>$n for PC's name, $e for he/she/they/it, $s for his/her/their/its, $m for him/her/them/it</span>
+			</label>
+			<textarea type="text" id="wear" class="user-defined-string" data-code="extended-@wear"></textarea>
+			<div class="preview" id="wear-convert"></div>
+		</div>
+
 		<!-- @SMELL -->
 		<div id="group-smell" class="input-group" data-toggle="false">
-			<label for="smell" id="smell-label">@smell (optional text for when item is sniffed)<br>
+			<label for="smell" id="smell-label">@smell (Optional text for when an item is sniffed.)<br>
+				<span class="footnote"><br>$n for PC's name, $e for he/she/they/it, $s for his/her/their/its, $m for him/her/them/it</span>
 			</label>
 			<textarea type="text" id="smell" class="user-defined-string" data-code="extended-@smell"></textarea>
 			<div class="preview" id="smell-convert"></div>
+		</div>
+
+		<!-- @OPERATE -->
+		<div id="group-operate" class="input-group" data-toggle="false">
+			<label for="operate" id="operate-label">@operate (Custom message when object is operated, same syntax as @wear.)<br>
+				<span class="footnote"><br>$n for PC's name, $e for he/she/they/it, $s for his/her/their/its, $m for him/her/them/it</span>
+			</label>
+			<textarea type="text" id="operate" class="user-defined-string" data-code="extended-@operate"></textarea>
+			<div class="preview" id="operate-convert"></div>
+		</div>
+
+		<!-- @SMOKE -->
+		<div id="group-smoke" class="input-group" data-toggle="false">
+			<label for="smoke" id="smoke-label">@smoke (Custom smoke when smokable item is used.)<br>
+			</label>
+			<textarea type="text" id="smoke" class="user-defined-string" data-code="extended-@smoke"></textarea>
+			<div class="preview" id="smoke-convert"></div>
+		</div>
+
+		<!-- @USE -->
+		<div id="group-use" class="input-group" data-toggle="false">
+			<label for="use" id="use-label">@use (Starts with #, extended version of @self/others. Randomly selects a message if there are multiple @uses on the object. Takes #others and #self on separate lines, like @wear.)<br>
+				<span class="footnote"><br>$n for PC's name, $e for he/she/they/it, $s for his/her/their/its, $m for him/her/them/it</span>
+			</label>
+			<textarea type="text" id="use" class="user-defined-string" data-code="extended-@use"></textarea>
+			<div class="preview" id="use-convert"></div>
+		</div>
+		
+		<!-- @PLATE -->
+		<div id="group-plate" class="input-group" data-toggle="false">
+			<label for="plate" id="plate-label">@plate (Short desc of an individual plate from a set of plates object.)<br>
+			</label>
+			<input type="text" id="plate" class="user-defined-string" data-code="extended-@plate">
+			<div class="preview" id="plate-convert"></div>
 		</div>
 		
 		
@@ -1188,7 +1244,7 @@
 				inputValue = inputValue.replace( matches[x], "</span><spanreservedwordforspacesid='" + idValue + "'>");
 			}
 			
-			inputValue = inputValue.replace ( /\$n/g, "Saga" );
+			inputValue = inputValue.replace ( /\$n/g, "Iris" );
 			inputValue = inputValue.replace ( /\$e/g, "she" );
 			inputValue = inputValue.replace ( /\$s/g, "her" );
 			inputValue = inputValue.replace ( /\{\(/g, "&lt;" );
@@ -1276,11 +1332,13 @@
 							line.push( definedString.value );
 							if ( definedString.id == "extended" ||
 								definedString.id == "shop_info" ||
-								//definedString.id == "seal" 		||
-								definedString.id == "seal_text" 	||
 								definedString.id == "smell" 	||
+								definedString.id == "smoke" 	||
 								//definedString.id == "header" 	||
 								definedString.id == "header_text" 	||
+								//definedString.id == "operate" 	||
+								//definedString.id == "use" 	||
+								//definedString.id == "wear" 	||
 								definedString.id == "desc_cloak"){
 								line.push( "@f");
 							}
@@ -1296,11 +1354,13 @@
 							// desc will screw it up.
 							if ( definedString.id == "extended" ||
 								definedString.id == "shop_info" ||
-								//definedString.id == "seal" 		||
-								definedString.id == "seal_text" 	||
 								definedString.id == "smell"		||
+								definedString.id == "smoke"		||
 								//definedString.id == "header" 	||
 								definedString.id == "header_text" 	||
+								//definedString.id == "operate" 	||
+								//definedString.id == "use" 	||
+								//definedString.id == "wear" 	||
 								definedString.id == "desc_cloak"){
 								line.push( "@f");
 							}
