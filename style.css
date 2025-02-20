@@ -1,0 +1,556 @@
+/* --------------------------------------------------
+   Global Resets & Base Styles
+-------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #e8d8c7;
+  font-family: "Space Mono", Monaco, monospace;
+  font-size: 14px;
+}
+
+/* --------------------------------------------------
+   Form Elements & Options
+-------------------------------------------------- */
+option {
+  background: #142030;
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+  border-radius: 4px;
+}
+
+input,
+select {
+  padding: 9px;
+  height: 38px;
+  font-size: 14px;
+}
+
+/* --------------------------------------------------
+   Container & Layout
+-------------------------------------------------- */
+.container {
+  min-height: 100dvh;
+  width: 730px;
+  background-color: #182231;
+  overflow: auto;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 15px 40px;
+}
+
+#title {
+  display: block;
+  width: 60%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* --------------------------------------------------
+   Color Classes for Spans
+   (DO NOT MODIFY – these are dynamically used)
+-------------------------------------------------- */
+span#r    { color: #BF1B00; }
+span#c    { color: #008065; }
+span#u_R  { color: #FF192D; }
+span#u_C  { color: #36EDF6; }
+span#g    { color: #00AC00; }
+span#y    { color: #DAA520; }
+span#u_G  { color: #A1E577; }
+span#u_Y  { color: #F3DF00; }
+span#b    { color: #0E68C7; }
+span#w    { color: #DBDBDB; }
+span#u_B  { color: #3680EE; }
+span#u_W  { color: #FFFFFF; }
+span#m    { color: #800556; }
+span#u_D  { color: #6E6E5C; }
+span#u_M  { color: #FF00C3; }
+span#x    { color: #DBDBDB; }
+span#e    { color: #5fd75f; }
+span#l    { color: #5f875f; }
+span#j    { color: #005f00; }
+span#n_0  { color: #afd787; }
+span#t    { color: #005faf; }
+span#n    { color: #000087; }
+span#i    { color: #5f00af; }
+span#n_2  { color: #0087af; }
+span#v    { color: #af00d7; }
+span#n_4  { color: #d75fff; }
+span#s    { color: #4e4e4e; }
+span#u_E  { color: #87ff87; }
+span#u_L  { color: #afff00; }
+span#u_J  { color: #5fffaf; }
+span#n_1  { color: #d7ffd7; }
+span#u_T  { color: #5fafd7; }
+span#u_N  { color: #0087ff; }
+span#u_I  { color: #8787d7; }
+span#n_3  { color: #87d7ff; }
+span#u_V  { color: #af87ff; }
+span#n_5  { color: #d7afff; }
+span#u_S  { color: #8a8a8a; }
+span#p    { color: #af5f87; }
+span#q    { color: #87005f; }
+span#n_6  { color: #d700af; }
+span#n_8  { color: #5f0000; }
+span#h    { color: #ffd700; }
+span#k    { color: #d7875f; }
+span#o    { color: #af5f00; }
+span#f    { color: #875f5f; }
+span#u    { color: #875f00; }
+span#d    { color: #303030; }
+span#u_P  { color: #ffafd7; }
+span#u_Q  { color: #ff00af; }
+span#n_7  { color: #ff87ff; }
+span#n_9  { color: #d7005f; }
+span#u_H  { color: #ffffaf; }
+span#u_K  { color: #ffd787; }
+span#u_O  { color: #ff8700; }
+span#u_F  { color: #ffaf5f; }
+span#u_U  { color: #af8700; }
+span#aaa  { color: #000000; }
+span#aab  { color: #00005f; }
+span#aac  { color: #000087; }
+span#aad  { color: #0000af; }
+span#aae  { color: #0000d7; }
+span#aaf  { color: #0000ff; }
+span#aba  { color: #005f00; }
+span#abb  { color: #005f5f; }
+span#abc  { color: #005f87; }
+span#abd  { color: #005faf; }
+span#abe  { color: #005fd7; }
+span#abf  { color: #005fff; }
+span#aca  { color: #008700; }
+span#acb  { color: #00875f; }
+span#acc  { color: #008787; }
+span#acd  { color: #0087af; }
+span#ace  { color: #0087d7; }
+span#acf  { color: #0087ff; }
+span#ada  { color: #00af00; }
+span#adb  { color: #00af5f; }
+span#adc  { color: #00af87; }
+span#add  { color: #00afaf; }
+span#ade  { color: #00afd7; }
+span#adf  { color: #00afff; }
+span#aea  { color: #00d700; }
+span#aeb  { color: #00d75f; }
+span#aec  { color: #00d787; }
+span#aed  { color: #00d7af; }
+span#aee  { color: #00d7d7; }
+span#aef  { color: #00d7ff; }
+span#afa  { color: #00ff00; }
+span#afb  { color: #00ff5f; }
+span#afc  { color: #00ff87; }
+span#afd  { color: #00ffaf; }
+span#afe  { color: #00ffd7; }
+span#aff  { color: #00ffff; }
+span#baa  { color: #5f0000; }
+span#bab  { color: #5f005f; }
+span#bac  { color: #5f0087; }
+span#bad  { color: #5f00af; }
+span#bae  { color: #5f00d7; }
+span#baf  { color: #5f00ff; }
+span#bba  { color: #5f5f00; }
+span#bbb  { color: #5f5f5f; }
+span#bbc  { color: #5f5f87; }
+span#bbd  { color: #5f5faf; }
+span#bbe  { color: #5f5fd7; }
+span#bbf  { color: #5f5fff; }
+span#bca  { color: #5f8700; }
+span#bcb  { color: #5f875f; }
+span#bcc  { color: #5f8787; }
+span#bcd  { color: #5f87af; }
+span#bce  { color: #5f87d7; }
+span#bcf  { color: #5f87ff; }
+span#bda  { color: #5faf00; }
+span#bdb  { color: #5faf5f; }
+span#bdc  { color: #5faf87; }
+span#bdd  { color: #5fafaf; }
+span#bde  { color: #5fafd7; }
+span#bdf  { color: #5fafff; }
+span#bea  { color: #5fd700; }
+span#beb  { color: #5fd75f; }
+span#bec  { color: #5fd787; }
+span#bed  { color: #5fd7af; }
+span#bee  { color: #5fd7d7; }
+span#bef  { color: #5fd7ff; }
+span#bfa  { color: #5fff00; }
+span#bfb  { color: #5fff5f; }
+span#bfc  { color: #5fff87; }
+span#bfd  { color: #5fffaf; }
+span#bfe  { color: #5fffd7; }
+span#bff  { color: #5fffff; }
+span#caa  { color: #870000; }
+span#cab  { color: #87005f; }
+span#cac  { color: #870087; }
+span#cad  { color: #8700af; }
+span#cae  { color: #8700d7; }
+span#caf  { color: #8700ff; }
+span#cba  { color: #875f00; }
+span#cbb  { color: #875f5f; }
+span#cbc  { color: #875f87; }
+span#cbd  { color: #875faf; }
+span#cbe  { color: #875fd7; }
+span#cbf  { color: #875fff; }
+span#cca  { color: #878700; }
+span#ccb  { color: #87875f; }
+span#ccc  { color: #878787; }
+span#ccd  { color: #8787af; }
+span#cce  { color: #8787d7; }
+span#ccf  { color: #8787ff; }
+span#cda  { color: #87af00; }
+span#cdb  { color: #87af5f; }
+span#cdc  { color: #87af87; }
+span#cdd  { color: #87afaf; }
+span#cde  { color: #87afd7; }
+span#cdf  { color: #87afff; }
+span#cea  { color: #87d700; }
+span#ceb  { color: #87d75f; }
+span#cec  { color: #87d787; }
+span#ced  { color: #87d7af; }
+span#cee  { color: #87d7d7; }
+span#cef  { color: #87d7ff; }
+span#cfa  { color: #87ff00; }
+span#cfb  { color: #87ff5f; }
+span#cfc  { color: #87ff87; }
+span#cfd  { color: #87ffaf; }
+span#cfe  { color: #87ffd7; }
+span#cff  { color: #87ffff; }
+span#daa  { color: #af0000; }
+span#dab  { color: #af005f; }
+span#dac  { color: #af0087; }
+span#dad  { color: #af00af; }
+span#dae  { color: #af00d7; }
+span#daf  { color: #af00ff; }
+span#dba  { color: #af5f00; }
+span#dbb  { color: #af5f5f; }
+span#dbc  { color: #af5f87; }
+span#dbd  { color: #af5faf; }
+span#dbe  { color: #af5fd7; }
+span#dbf  { color: #af5fff; }
+span#dca  { color: #af8700; }
+span#dcb  { color: #af875f; }
+span#dcc  { color: #af8787; }
+span#dcd  { color: #af87af; }
+span#dce  { color: #af87d7; }
+span#dcf  { color: #af87ff; }
+span#dda  { color: #afaf00; }
+span#ddb  { color: #afaf5f; }
+span#ddc  { color: #afaf87; }
+span#ddd  { color: #afafaf; }
+span#dde  { color: #afafd7; }
+span#ddf  { color: #afafff; }
+span#dea  { color: #afd700; }
+span#deb  { color: #afd75f; }
+span#dec  { color: #afd787; }
+span#ded  { color: #afd7af; }
+span#dee  { color: #afd7d7; }
+span#def  { color: #afd7ff; }
+span#dfa  { color: #afff00; }
+span#dfb  { color: #afff5f; }
+span#dfc  { color: #afff87; }
+span#dfd  { color: #afffaf; }
+span#dfe  { color: #afffd7; }
+span#dff  { color: #afffff; }
+span#eaa  { color: #d70000; }
+span#eab  { color: #d7005f; }
+span#eac  { color: #d70087; }
+span#ead  { color: #d700af; }
+span#eae  { color: #d700d7; }
+span#eaf  { color: #d700ff; }
+span#eba  { color: #d75f00; }
+span#ebb  { color: #d75f5f; }
+span#ebc  { color: #d75f87; }
+span#ebd  { color: #d75faf; }
+span#ebe  { color: #d75fd7; }
+span#ebf  { color: #d75fff; }
+span#eca  { color: #d78700; }
+span#ecb  { color: #d7875f; }
+span#ecc  { color: #d78787; }
+span#ecd  { color: #d787af; }
+span#ece  { color: #d787d7; }
+span#ecf  { color: #d787ff; }
+span#eda  { color: #d7af00; }
+span#edb  { color: #d7af5f; }
+span#edc  { color: #d7af87; }
+span#edd  { color: #d7afaf; }
+span#ede  { color: #d7afd7; }
+span#edf  { color: #d7afff; }
+span#eea  { color: #d7d700; }
+span#eeb  { color: #d7d75f; }
+span#eec  { color: #d7d787; }
+span#eed  { color: #d7d7af; }
+span#eee  { color: #d7d7d7; }
+span#eef  { color: #d7d7ff; }
+span#efa  { color: #d7ff00; }
+span#efb  { color: #d7ff5f; }
+span#efc  { color: #d7ff87; }
+span#efd  { color: #d7ffaf; }
+span#efe  { color: #d7ffd7; }
+span#eff  { color: #d7ffff; }
+span#faa  { color: #ff0000; }
+span#fab  { color: #ff005f; }
+span#fac  { color: #ff0087; }
+span#fad  { color: #ff00af; }
+span#fae  { color: #ff00d7; }
+span#faf  { color: #ff00ff; }
+span#fba  { color: #ff5f00; }
+span#fbb  { color: #ff5f5f; }
+span#fbc  { color: #ff5f87; }
+span#fbd  { color: #ff5faf; }
+span#fbe  { color: #ff5fd7; }
+span#fbf  { color: #ff5fff; }
+span#fca  { color: #ff8700; }
+span#fcb  { color: #ff875f; }
+span#fcc  { color: #ff8787; }
+span#fcd  { color: #ff87af; }
+span#fce  { color: #ff87d7; }
+span#fcf  { color: #ff87ff; }
+span#fda  { color: #ffaf00; }
+span#fdb  { color: #ffaf5f; }
+span#fdc  { color: #ffaf87; }
+span#fdd  { color: #ffafaf; }
+span#fde  { color: #ffafd7; }
+span#fdf  { color: #ffafff; }
+span#fea  { color: #ffd700; }
+span#feb  { color: #ffd75f; }
+span#fec  { color: #ffd787; }
+span#fed  { color: #ffd7af; }
+span#fee  { color: #ffd7d7; }
+span#fef  { color: #ffd7ff; }
+span#ffa  { color: #ffff00; }
+span#ffb  { color: #ffff5f; }
+span#ffc  { color: #ffff87; }
+span#ffd  { color: #ffffaf; }
+span#ffe  { color: #ffffd7; }
+span#fff  { color: #ffffff; }
+span#g00  { color: #080808; }
+span#g01  { color: #121212; }
+span#g02  { color: #1c1c1c; }
+span#g03  { color: #262626; }
+span#g04  { color: #303030; }
+span#g05  { color: #3a3a3a; }
+span#g06  { color: #444444; }
+span#g07  { color: #4e4e4e; }
+span#g08  { color: #585858; }
+span#g09  { color: #606060; }
+
+/* --------------------------------------------------
+   Preview & Output Styles
+-------------------------------------------------- */
+.preview {
+  width: 100%;
+  min-height: 35px;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.4);
+  word-wrap: break-word;
+  border-radius: 0 0 4px 4px;
+}
+
+#output {
+  font-weight: normal;
+  min-height: 35px;
+  padding: 5px;
+  white-space: pre-wrap;
+}
+
+/* --------------------------------------------------
+   Output Options
+-------------------------------------------------- */
+.output-options-wrapper {
+  margin-top: 10px;
+  overflow: auto;
+  background: linear-gradient(45deg, rgba(115,38,84,1) 0%, rgba(255,91,141,1) 80%, rgba(232,216,199,1) 100%);
+  border-radius: 4px;
+}
+.output-options-half {
+  width: 50%;
+  float: left;
+  padding: 10px;
+}
+.output-options-spacer {
+  display: block;
+  float: left;
+  width: 100%;
+}
+.output-options-half label {
+  font-size: 10px;
+  margin: 0;
+}
+
+/* --------------------------------------------------
+   Footnotes
+-------------------------------------------------- */
+.footnote {
+  font-size: 10px;
+}
+
+/* --------------------------------------------------
+   OPTIONS BOX
+-------------------------------------------------- */
+#options-box {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  margin: 30px auto;
+  display: block;
+  width: 100%;
+  overflow: auto;
+  text-align: center;
+}
+#options-box input[type="checkbox"] {
+  display: none;
+}
+#options-box label {
+  cursor: pointer;
+  display: inline-block;
+  padding: 9px;
+  margin: 3px;
+  background: rgba(0, 0, 0, 0.25);
+}
+#options-box label:hover {
+  background-color: #732654;
+}
+#options-box label.extended-desc-shown {
+  color: #e8d8c7;
+  background: linear-gradient(60deg, rgba(115,38,84,1) 0%, rgba(255,91,141,1) 80%, rgba(232,216,199,1) 100%);
+  border: none;
+  padding: 9px;
+}
+
+/* --------------------------------------------------
+   Input Groups
+-------------------------------------------------- */
+.input-group {
+  opacity: 1;
+  transition: 1s all ease-in-out;
+}
+.input-group[data-toggle="false"] {
+  opacity: 0;
+  display: none;
+}
+
+/* --------------------------------------------------
+   RESKIN COLOUR & Overrides
+-------------------------------------------------- */
+body {
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(232,216,199,1) 0%,
+    rgba(255,91,141,1) 10%,
+    rgba(115,38,84,1) 50%,
+    rgba(20,32,48,1) 100%
+  );
+  background-attachment: fixed;
+}
+
+input, textarea, select {
+  color: #142030;
+  scrollbar-color: rgba(0, 0, 0, 0.4) #E8D8C7;
+  font-family: "Space Mono", Monaco, monospace;
+  padding: 5px;
+  margin: 5px auto 0;
+  font-size: 14px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+#reference_box {
+  background: black;
+  width: 320px;
+  padding: 10px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(375px, 0);
+  border-radius: 4px;
+}
+
+#extended {
+  font-size: 14px;
+}
+
+select {
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.25);
+  color: #E8D8C7;
+  border: none;
+  width: 100%;
+}
+
+input {
+  background: rgba(0, 0, 0, 0.25);
+  color: #E8D8C7;
+  border: none;
+  border-radius: 4px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 1px solid #E8D8C7;
+}
+
+textarea {
+  color: #e8d8c7;
+  border-radius: 4px 4px 0 0;
+  background: rgba(0, 0, 0, 0.25);
+  border: none;
+  white-space: pre-wrap;
+  margin-bottom: -5px;
+  height: 35px;
+}
+
+#separator,
+#target {
+  border-radius: 4px;
+}
+
+#output {
+  border-radius: 4px 4px 0 4px;
+  border: none;
+  height: 105px;
+}
+
+#notification {
+  margin-top: 10px;
+  margin-bottom: 14px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #e8d8c7;
+  padding: 12px;
+  border-radius: 4px;
+  height: 106px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #e8d8c7 #0D131D;
+}
+
+#notification ul {
+  font-size: 10px;
+  padding: 0 0 0 35px;
+  margin: 0;
+}
+
+/* --------------------------------------------------
+   Color Toggle Button
+-------------------------------------------------- */
+#color-toggle-button {
+  font-family: "Space Mono", Monaco, monospace;
+  cursor: pointer;
+  color: #FF5B8D;
+  float: right;
+  background: none;
+  font-size: 12px;
+  border: none;
+  text-decoration: underline;
+}
