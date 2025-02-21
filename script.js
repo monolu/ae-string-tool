@@ -1,17 +1,25 @@
-// constants
-const EXTENDED_IDS = ["extended", "shop_info", "smell", "smoke", "header_text", "desc_cloak"];
-const SPECIAL_REGEX = /{([A-z0-9])|<([A-z0-9]{3})>/g;
+// --- Helper Functions ---
 
-// helper to check for extended types
+// debounce function to limit how often calculateOutput runs
+const debounce = (func, delay = 200) => {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), delay);
+  };
+};
+
+// check if an id is one of the extended types
+const EXTENDED_IDS = ["extended", "shop_info", "smell", "smoke", "header_text", "desc_cloak"];
 const isExtendedType = id => EXTENDED_IDS.includes(id);
 
-// Toggle reference box visibility using dataset
+// --- Toggle Reference Box ---
 const toggleColor = () => {
   const refDiv = document.getElementById("reference_box");
   refDiv.style.display = refDiv.style.display !== "none" ? "none" : "block";
 };
 
-// Cache DOM elements
+// --- DOM Caching ---
 const el = {
   container: document.getElementById("main-wrapper"),
   short: document.getElementById("short"),
@@ -29,7 +37,7 @@ const el = {
   options: document.querySelectorAll("#options-box input[type='checkbox']")
 };
 
-// Attach extra properties
+// attach extra properties for labels and preview elements
 el.short.label = document.getElementById("short-label");
 el.short.convert = document.getElementById("short-convert");
 el.long.label = document.getElementById("long-label");
@@ -41,36 +49,34 @@ el.eat.convert = document.getElementById("eat-convert");
 el.taste.label = document.getElementById("taste-label");
 el.taste.convert = document.getElementById("taste-convert");
 
-// Update character count
+// --- Character Count ---
+const SPECIAL_REGEX = /{([A-z0-9])|<([A-z0-9]{3})>/g;
 const charCount = target => {
-  let labelValue = target.label.getAttribute("data-default") || "";
-  const strippedValue = target.value.replace(SPECIAL_REGEX, "");
-  if (strippedValue.length > 0) {
-    labelValue += ` (${strippedValue.length} chars)`;
-  }
-  target.label.innerHTML = labelValue;
+  let base = target.label.getAttribute("data-default") || "";
+  const stripped = target.value.replace(SPECIAL_REGEX, "");
+  if (stripped.length > 0) base += ` (${stripped.length} chars)`;
+  target.label.innerHTML = base;
 };
 
-// Convert colours (leaves spaces intact)
+// --- Convert Colours ---
+// uses a callback in replace to convert each match
 const convertColours = (input, output) => {
-  let innerHTML = "<span id='x'>";
-  let inputValue = input.value
+  let text = input.value
     .replace("{[", "[")
     .replace("{]", "]")
     .replace("{]", "]")
     .replace(/<([A-z0-9]{2})>/g, "")
     .replace(/<>/g, "");
   
-  const matches = inputValue.match(SPECIAL_REGEX) || [];
-  for (const match of matches) {
-    let stripped = match.replace(/[<{>]/g, "");
+  text = text.replace(SPECIAL_REGEX, match => {
+    const stripped = match.replace(/[<{>]/g, "");
     let idValue = stripped;
     if (/^[0-9]+$/.test(idValue)) idValue = "n_" + idValue;
     if (idValue === idValue.toUpperCase()) idValue = "u_" + idValue;
-    inputValue = inputValue.replace(match, `</span><span reservedwordforspaces id='${idValue}'>`);
-  }
+    return `</span><span reservedwordforspaces id='${idValue}'>`;
+  });
   
-  inputValue = inputValue
+  text = text
     .replace(/\$n/g, "Iris")
     .replace(/\$e/g, "she")
     .replace(/\$s/g, "her")
@@ -82,61 +88,88 @@ const convertColours = (input, output) => {
     .replace(/(\n|\r|\{\/)/g, "<br/>")
     .replace(/reservedwordforspaces/g, " ");
   
-  innerHTML += inputValue + "</span>";
-  output.innerHTML = innerHTML;
+  output.innerHTML = `<span id='x'>${text}</span>`;
 };
 
-// Remove all special characters
+// --- Remove Special Characters ---
 const removeSpecialChars = str => str.replace(/(\{.{1})|<([A-z0-9]{3})>/g, "").trim();
 
-// Autofill the long description if not customised
+// Auto-resize function for a given textarea
+const autoResize = textarea => {
+  textarea.style.height = "35px";
+  textarea.style.height = textarea.scrollHeight + "px";
+};
+
+// attach autoResize on user input
+document.querySelectorAll("textarea").forEach(ta => {
+  ta.addEventListener("input", () => autoResize(ta));
+  autoResize(ta); // initial adjust
+});
+
+// Autofill the long description
 const autofillLong = () => {
   if (el.long.getAttribute("data-customised") !== "true") {
     if (el.short.value) {
-      const shortName = removeSpecialChars(el.short.value);
-      const capitalisedShort = shortName.charAt(0).toUpperCase() + shortName.slice(1);
-      el.long.value = `${capitalisedShort} is here.`;
+      const raw = el.short.value;
+      const capitalised = raw.charAt(0).toUpperCase() + raw.slice(1);
+      el.long.value = `${capitalised} is here.`;
     } else {
       el.long.value = "";
     }
     charCount(el.long);
     convertColours(el.long, el.long.convert);
+    autoResize(el.long); // update long desc height
   }
 };
 
-// Autofill keyword placeholder
+
+
+// --- Autofill Keyword Placeholder ---
 const autofillKeyword = () => {
-  const keywords = el.keywords.value.match(/\w+/g);
-  el.target.placeholder = keywords ? keywords[0] : "";
+  const kws = el.keywords.value.match(/\w+/g);
+  el.target.placeholder = kws ? kws[0] : "";
 };
 
-// Calculate output (push each line so join adds the separator)
+// --- Process Extended Input ---
+// returns an array of lines for an extended input
+const processExtended = definedString => {
+  let code = definedString.getAttribute("data-code");
+  let codeTarget = code.replace("extended-", "");
+  if (codeTarget === "keywords") codeTarget = el.keywords.value;
+  code = `ed add ${codeTarget}`;
+  const tool = el.toolType.value;
+  const keyword = el.target.value || el.target.placeholder;
+  const allPrefix = el.groupTool.value === "on" ? "all." : "";
+  let lines = [];
+  
+  if (allPrefix) {
+    lines.push("clipboard clear", "clipboard edit", definedString.value);
+    if (isExtendedType(definedString.id)) lines.push("@f");
+    lines.push("@x", `${tool} ${allPrefix}${keyword} ${code}`);
+  } else {
+    lines.push(`${tool} ${allPrefix}${keyword} ${code}`, definedString.value);
+    if (isExtendedType(definedString.id)) lines.push("@f");
+    lines.push("@x");
+  }
+  return lines;
+};
+
+// Calculate output and then update the output textarea's height
 const calculateOutput = () => {
   const tool = el.toolType.value;
   const keyword = el.target.value || el.target.placeholder;
-  const lines = [];
-  const lineSeparator = el.separator.value || "\n";
   const allPrefix = el.groupTool.value === "on" ? "all." : "";
+  const lineSeparator = el.separator.value || "\n";
+  const lines = [];
   let clipboardUsed = false;
-
+  
   for (let definedString of el.userDefinedStrings) {
-    if (definedString.value !== "") {
+    if (definedString.value.trim() !== "") {
       let code = definedString.getAttribute("data-code");
       if (code.includes("extended")) {
-        let codeTarget = code.replace("extended-", "");
-        if (codeTarget === "keywords") codeTarget = el.keywords.value;
-        code = `ed add ${codeTarget}`;
-  
-        if (allPrefix) {
-          lines.push("clipboard clear", "clipboard edit", definedString.value);
-          if (isExtendedType(definedString.id)) lines.push("@f");
-          lines.push("@x", `${tool} ${allPrefix}${keyword} ${code}`);
-          clipboardUsed = true;
-        } else {
-          lines.push(`${tool} ${allPrefix}${keyword} ${code}`, definedString.value);
-          if (isExtendedType(definedString.id)) lines.push("@f");
-          lines.push("@x");
-        }
+        const extendedLines = processExtended(definedString);
+        lines.push(...extendedLines);
+        if (allPrefix) clipboardUsed = true;
       } else {
         lines.push(`${tool} ${allPrefix}${keyword} ${code} ${definedString.value}`);
       }
@@ -149,7 +182,37 @@ const calculateOutput = () => {
   
   if (clipboardUsed) lines.push("clipboard clear");
   el.output.value = lines.join(lineSeparator);
+  autoResize(el.output); // update output height
 };
+
+// --- Event Listeners ---
+
+// Debounced calculateOutput for performance
+const debouncedCalcOutput = debounce(calculateOutput);
+
+// Use "input" event to catch changes from typing, pasting, etc.
+el.container.addEventListener("input", e => {
+  if (["TEXTAREA", "INPUT"].includes(e.target.tagName) && e.target.id !== "output") {
+    const label = document.getElementById(`${e.target.id}-label`);
+    if (label && label.getAttribute("data-default")) charCount(e.target);
+    const preview = document.getElementById(`${e.target.id}-convert`);
+    if (preview) convertColours(e.target, preview);
+    debouncedCalcOutput();
+  }
+});
+
+// Also listen to click events in the container (if needed)
+el.container.addEventListener("click", e => {
+  if (e.target.id !== "output") calculateOutput();
+});
+
+// Autofill keyword on input change
+el.keywords.addEventListener("input", autofillKeyword);
+
+// Autofill long desc
+el.short.addEventListener("input", () => {
+  autofillLong();
+});
 
 // Attach option toggles using dataset properties
 el.options.forEach(option => {
@@ -176,22 +239,3 @@ el.options.forEach(option => {
     }
   });
 });
-
-// Global event listeners using e.target
-el.container.addEventListener("click", e => {
-  if (e.target.id !== "output") calculateOutput();
-});
-
-el.container.addEventListener("keyup", e => {
-  if (["TEXTAREA", "INPUT"].includes(e.target.tagName) && e.target.id !== "output") {
-    const label = document.getElementById(`${e.target.id}-label`);
-    if (label && label.getAttribute("data-default")) {
-      charCount(e.target);
-    }
-    const preview = document.getElementById(`${e.target.id}-convert`);
-    if (preview) convertColours(e.target, preview);
-    calculateOutput();
-  }
-});
-
-el.keywords.addEventListener("keyup", autofillKeyword);
