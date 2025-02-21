@@ -37,14 +37,16 @@ select {
    Container & Layout
 -------------------------------------------------- */
 .container {
-  min-height: 100dvh;
-  width: 730px;
+  width: 90vw;
+  max-width: 730px;
+  min-height: 100vh;  /* fill the viewport height */
   background-color: #182231;
   overflow: auto;
   margin: 0 auto;
   box-sizing: border-box;
   padding: 0 15px 40px;
 }
+
 
 #title {
   display: block;
@@ -366,7 +368,12 @@ span#g09  { color: #606060; }
 .output-options-wrapper {
   margin-top: 10px;
   overflow: auto;
-  background: linear-gradient(45deg, rgba(115,38,84,1) 0%, rgba(255,91,141,1) 80%, rgba(232,216,199,1) 100%);
+  background: linear-gradient(
+    45deg,
+    rgba(115,38,84,1) 0%,
+    rgba(255,91,141,1) 80%,
+    rgba(232,216,199,1) 100%
+  );
   border-radius: 4px;
 }
 .output-options-half {
@@ -422,7 +429,12 @@ span#g09  { color: #606060; }
 }
 #options-box label.extended-desc-shown {
   color: #e8d8c7;
-  background: linear-gradient(60deg, rgba(115,38,84,1) 0%, rgba(255,91,141,1) 80%, rgba(232,216,199,1) 100%);
+  background: linear-gradient(
+    60deg,
+    rgba(115,38,84,1) 0%,
+    rgba(255,91,141,1) 80%,
+    rgba(232,216,199,1) 100%
+  );
   border: none;
   padding: 9px;
 }
@@ -553,4 +565,10 @@ textarea {
   font-size: 12px;
   border: none;
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  #color-toggle-button {
+    display: none;
+  }
 }
