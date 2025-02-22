@@ -603,6 +603,7 @@ textarea {
   background: none;
   font-size: 12px;
   border: none;
+  margin-top: 8px;
   text-decoration: underline;
 }
 
