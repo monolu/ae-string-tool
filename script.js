@@ -1,4 +1,4 @@
-// --- Helper Functions ---
+// HELPER FUNCTIONS
 
 // debounce function to limit how often calculateOutput runs
 const debounce = (func, delay = 200) => {
@@ -13,13 +13,12 @@ const debounce = (func, delay = 200) => {
 const EXTENDED_IDS = ["extended", "shop_info", "smell", "smoke", "header_text", "desc_cloak"];
 const isExtendedType = id => EXTENDED_IDS.includes(id);
 
-// --- Toggle Reference Box ---
-const toggleColor = () => {
+const toggleColour = () => {
   const refDiv = document.getElementById("reference_box");
   refDiv.style.display = refDiv.style.display !== "none" ? "none" : "block";
 };
 
-// --- DOM Caching ---
+// DOM caching
 const el = {
   container: document.getElementById("main-wrapper"),
   short: document.getElementById("short"),
@@ -49,7 +48,7 @@ el.eat.convert = document.getElementById("eat-convert");
 el.taste.label = document.getElementById("taste-label");
 el.taste.convert = document.getElementById("taste-convert");
 
-// --- Character Count ---
+// char counter
 const SPECIAL_REGEX = /{([A-z0-9])|<([A-z0-9]{3})>/g;
 const charCount = target => {
   let base = target.label.getAttribute("data-default") || "";
@@ -58,8 +57,9 @@ const charCount = target => {
   target.label.innerHTML = base;
 };
 
-// --- Convert Colours ---
-// uses a callback in replace to convert each match
+// convert colours
+// now uses a callback in replace to convert each match
+// i hate regex
 const convertColours = (input, output) => {
   let text = input.value
     .replace("{[", "[")
@@ -91,12 +91,12 @@ const convertColours = (input, output) => {
   output.innerHTML = `<span id='x'>${text}</span>`;
 };
 
-// --- Remove Special Characters ---
+// remove special chars
 const removeSpecialChars = str => str.replace(/(\{.{1})|<([A-z0-9]{3})>/g, "").trim();
 
-// Auto-resize function for a given textarea
+// auto-resize textareas
 const autoResize = textarea => {
-  textarea.style.height = "35px";
+  textarea.style.height = "35px"; // magic number but this is what looks good and I hate css
   textarea.style.height = textarea.scrollHeight + "px";
 };
 
@@ -106,7 +106,7 @@ document.querySelectorAll("textarea").forEach(ta => {
   autoResize(ta); // initial adjust
 });
 
-// Autofill the long description
+// autofill longdesc
 const autofillLong = () => {
   if (el.long.getAttribute("data-customised") !== "true") {
     if (el.short.value) {
@@ -118,20 +118,18 @@ const autofillLong = () => {
     }
     charCount(el.long);
     convertColours(el.long, el.long.convert);
-    autoResize(el.long); // update long desc height
+    autoResize(el.long);
   }
 };
 
-
-
-// --- Autofill Keyword Placeholder ---
+// autofill keyword placeholder
 const autofillKeyword = () => {
   const kws = el.keywords.value.match(/\w+/g);
   el.target.placeholder = kws ? kws[0] : "";
 };
 
-// --- Process Extended Input ---
-// returns an array of lines for an extended input
+// process extended input
+// now returns an array of lines for an extended input
 const processExtended = definedString => {
   let code = definedString.getAttribute("data-code");
   let codeTarget = code.replace("extended-", "");
@@ -154,7 +152,7 @@ const processExtended = definedString => {
   return lines;
 };
 
-// Calculate output and then update the output textarea's height
+// calc output then update the output textarea's height
 const calculateOutput = () => {
   const tool = el.toolType.value;
   const keyword = el.target.value || el.target.placeholder;
@@ -185,12 +183,12 @@ const calculateOutput = () => {
   autoResize(el.output); // update output height
 };
 
-// --- Event Listeners ---
+// EVENT LISTENERS
 
-// Debounced calculateOutput for performance
+// debounced calculateOutput for performance
 const debouncedCalcOutput = debounce(calculateOutput);
 
-// Use "input" event to catch changes from typing, pasting, etc.
+// actually use input event
 el.container.addEventListener("input", e => {
   if (["TEXTAREA", "INPUT"].includes(e.target.tagName) && e.target.id !== "output") {
     const label = document.getElementById(`${e.target.id}-label`);
@@ -201,20 +199,21 @@ el.container.addEventListener("input", e => {
   }
 });
 
-// Also listen to click events in the container (if needed)
-el.container.addEventListener("click", e => {
-  if (e.target.id !== "output") calculateOutput();
-});
+// we shouldn't have to listen to click events anymore
 
-// Autofill keyword on input change
+// el.container.addEventListener("click", e => {
+//   if (e.target.id !== "output") calculateOutput();
+// });
+
+// autofill keyword
 el.keywords.addEventListener("input", autofillKeyword);
 
-// Autofill long desc
+// autofill longdesc
 el.short.addEventListener("input", () => {
   autofillLong();
 });
 
-// Attach option toggles using dataset properties
+// attach option toggles using dataset properties
 el.options.forEach(option => {
   option.addEventListener("click", () => {
     const target = document.getElementById(option.dataset.target);
