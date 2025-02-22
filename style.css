@@ -555,7 +555,7 @@ textarea {
   color: #e8d8c7;
   padding: 12px;
   border-radius: 4px;
-  height: 106px;
+  height: 162px;
   overflow-y: scroll;
   scrollbar-width: thin;
   scrollbar-color: #e8d8c7 #0D131D;
@@ -565,6 +565,12 @@ textarea {
   font-size: 10px;
   padding: 0 0 0 35px;
   margin: 0;
+}
+
+#notification p {
+  color: #AAA;
+  margin-bottom: 0;
+  font-size: 10px;
 }
 
 /* Custom Scrollbar for Textareas (WebKit) */
