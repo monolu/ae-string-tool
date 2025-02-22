@@ -57,6 +57,31 @@ const charCount = target => {
   target.label.innerHTML = base;
 };
 
+// helper to wrap text at a given limit (ignoring color codes)
+const wrapExtendedText = (text, limit = 80) => {
+  // match either a color code (like {x or <abc>) or any single character
+  const regex = /(?:{[A-Za-z0-9])|(?:<[A-Za-z0-9]{3}>)|./g;
+  const tokens = text.match(regex) || [];
+  let visibleCount = 0;
+  let result = "";
+
+  tokens.forEach(token => {
+    // if token is a color code, don't count it
+    if (/^(?:{[A-Za-z0-9]|<[A-Za-z0-9]{3}>$)/.test(token)) {
+      result += token;
+    } else {
+      result += token;
+      visibleCount++;
+      if (visibleCount >= limit) {
+        result += "\n";
+        visibleCount = 0;
+      }
+    }
+  });
+
+  return result;
+};
+
 // convert colours
 // now uses a callback in replace to convert each match
 // i hate regex
@@ -128,8 +153,7 @@ const autofillKeyword = () => {
   el.target.placeholder = kws ? kws[0] : "";
 };
 
-// process extended input
-// now returns an array of lines for an extended input
+// process extended input and wrap extended text at 80 visible characters
 const processExtended = definedString => {
   let code = definedString.getAttribute("data-code");
   let codeTarget = code.replace("extended-", "");
@@ -138,19 +162,24 @@ const processExtended = definedString => {
   const tool = el.toolType.value;
   const keyword = el.target.value || el.target.placeholder;
   const allPrefix = el.groupTool.value === "on" ? "all." : "";
-  let lines = [];
   
+  // wrap the extended text (ignoring color codes)
+  const wrappedText = wrapExtendedText(definedString.value, 80);
+  let lines = [];
+
+  // we're not doing @f because of an engine bug that still counts xterm colours when formatting
   if (allPrefix) {
-    lines.push("clipboard clear", "clipboard edit", definedString.value);
-    if (isExtendedType(definedString.id)) lines.push("@f");
+    lines.push("clipboard clear", "clipboard edit", wrappedText);
+    // if (isExtendedType(definedString.id)) lines.push("@f");
     lines.push("@x", `${tool} ${allPrefix}${keyword} ${code}`);
   } else {
-    lines.push(`${tool} ${allPrefix}${keyword} ${code}`, definedString.value);
-    if (isExtendedType(definedString.id)) lines.push("@f");
+    lines.push(`${tool} ${allPrefix}${keyword} ${code}`, wrappedText);
+    // if (isExtendedType(definedString.id)) lines.push("@f");
     lines.push("@x");
   }
   return lines;
 };
+
 
 // calc output then update the output textarea's height
 const calculateOutput = () => {
@@ -197,6 +226,11 @@ el.container.addEventListener("input", e => {
     if (preview) convertColours(e.target, preview);
     debouncedCalcOutput();
   }
+});
+
+// we need to listen to click events for the dropdown to work oops
+el.container.addEventListener("click", e => {
+  if (e.target.id !== "output") calculateOutput();
 });
 
 // autofill keyword
