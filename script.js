@@ -59,17 +59,21 @@ const charCount = target => {
 
 // helper to wrap text at a given limit (ignoring color codes)
 const wrapExtendedText = (text, limit = 80) => {
-  // match either a color code (like {x or <abc>) or any single character
+  // regex matches a color code or any character
   const regex = /(?:{[A-Za-z0-9])|(?:<[A-Za-z0-9]{3}>)|./g;
   const tokens = text.match(regex) || [];
   let visibleCount = 0;
   let result = "";
-
-  tokens.forEach(token => {
-    // if token is a color code, don't count it
-    if (/^(?:{[A-Za-z0-9]|<[A-Za-z0-9]{3}>$)/.test(token)) {
+  
+  for (const token of tokens) {
+    // if the token is a color code, don't count it
+    if (/^(?:{[A-Za-z0-9]|<[A-Za-z0-9]{3}>)$/.test(token)) {
       result += token;
     } else {
+      // if the last character in result is a newline and the current token is a space, skip it
+      if (result.endsWith("\n") && token === " ") {
+        continue;
+      }
       result += token;
       visibleCount++;
       if (visibleCount >= limit) {
@@ -77,10 +81,10 @@ const wrapExtendedText = (text, limit = 80) => {
         visibleCount = 0;
       }
     }
-  });
-
+  }
   return result;
 };
+
 
 // convert colours
 // now uses a callback in replace to convert each match
