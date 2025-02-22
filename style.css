@@ -242,7 +242,7 @@ textarea {
 }
 
 @media (max-width: 720px) {
-  #color-toggle-button {
+  #colour-toggle-button {
     display: none;
   }
 
@@ -253,7 +253,7 @@ textarea {
   }
 }
 
-#color-toggle-button {
+#colour-toggle-button {
   font-family: "Space Mono", Monaco, monospace;
   cursor: pointer;
   color: #FF5B8D;

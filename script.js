@@ -188,7 +188,7 @@ const calculateOutput = () => {
 // debounced calculateOutput for performance
 const debouncedCalcOutput = debounce(calculateOutput);
 
-// actually use input event
+// listen to input
 el.container.addEventListener("input", e => {
   if (["TEXTAREA", "INPUT"].includes(e.target.tagName) && e.target.id !== "output") {
     const label = document.getElementById(`${e.target.id}-label`);
@@ -199,12 +199,6 @@ el.container.addEventListener("input", e => {
   }
 });
 
-// we shouldn't have to listen to click events anymore
-
-// el.container.addEventListener("click", e => {
-//   if (e.target.id !== "output") calculateOutput();
-// });
-
 // autofill keyword
 el.keywords.addEventListener("input", autofillKeyword);
 
@@ -212,6 +206,11 @@ el.keywords.addEventListener("input", autofillKeyword);
 el.short.addEventListener("input", () => {
   autofillLong();
 });
+
+// listen for clicks to the funny colour toggle button
+document
+  .getElementById("colour-toggle-button")
+  .addEventListener("click", toggleColour);
 
 // attach option toggles using dataset properties
 el.options.forEach(option => {
