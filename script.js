@@ -58,33 +58,44 @@ const charCount = target => {
   target.label.innerHTML = base;
 };
 
-// helper to wrap text at a given limit (ignoring color codes)
+// helper to compute the visible length (ignores color codes)
 const wrapExtendedText = (text, limit = 80) => {
-  // regex matches a color code or any character
-  // the fact that this works(?) is proof that there is no god 
-  const regex = /(?:{[A-Za-z0-9])|(?:<[A-Za-z0-9]{3}>)|./g;
-  const tokens = text.match(regex) || [];
-  let visibleCount = 0;
-  let result = "";
-  
-  for (const token of tokens) {
-    // if the token is a color code, don't count it
-    if (/^(?:{[A-Za-z0-9]|<[A-Za-z0-9]{3}>)$/.test(token)) {
-      result += token;
-    } else {
-      // if the last character in result is a newline and the current token is a space, skip it
-      if (result.endsWith("\n") && token === " ") {
-        continue;
-      }
-      result += token;
-      visibleCount++;
-      if (visibleCount >= limit) {
-        result += "\n";
-        visibleCount = 0;
-      }
+  const getVisibleLength = str =>
+    str.replace(/({[A-Za-z0-9])|(<[A-Za-z0-9]{3}>)/g, "").length;
+
+  // split the text into parts (words and whitespace)
+  const parts = text.split(/(\s+)/);
+  let lines = [];
+  let currentLine = "";
+  let currentVisible = 0;
+
+  parts.forEach(part => {
+    // if the part is just whitespace, replace it with a single space
+    if (/^\s+$/.test(part)) {
+      part = " ";
     }
+    const partVisible = getVisibleLength(part);
+    if (currentVisible + partVisible <= limit) {
+      // add the part to the current line
+      currentLine += part;
+      currentVisible += partVisible;
+    } else {
+      // if adding this part would exceed the limit,
+      // finish the current line (trim any trailing space)
+      if (currentLine.trim() !== "") {
+        lines.push(currentLine.trimEnd());
+      }
+      // start a new line with the part (trim any leading space)
+      currentLine = part.trimStart();
+      currentVisible = getVisibleLength(currentLine);
+    }
+  });
+
+  if (currentLine.trim() !== "") {
+    lines.push(currentLine.trimEnd());
   }
-  return result;
+
+  return lines.join("\n");
 };
 
 
