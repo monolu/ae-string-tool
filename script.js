@@ -261,7 +261,7 @@ el.short.addEventListener("input", () => {
 });
 
 // listen for clicks to the funny colour toggle button
-// i hate how i implemented this stupid color reference thing but here we are
+// i hate how i implemented this stupid colour reference thing but here we are
 document
   .getElementById("colour-toggle-button")
   .addEventListener("click", toggleColour);
