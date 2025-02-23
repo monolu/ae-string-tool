@@ -58,7 +58,8 @@ const charCount = target => {
   target.label.innerHTML = base;
 };
 
-// helper to compute the visible length (ignores color codes)
+// helper to compute the visible length (ignores colour codes)
+// the fact that this regex works is proof that there is no god
 const wrapExtendedText = (text, limit = 80) => {
   const getVisibleLength = str =>
     str.replace(/({[A-Za-z0-9])|(<[A-Za-z0-9]{3}>)/g, "").length;
