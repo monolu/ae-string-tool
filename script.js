@@ -13,6 +13,7 @@ const debounce = (func, delay = 200) => {
 const EXTENDED_IDS = ["extended", "shop_info", "smell", "smoke", "header_text", "desc_cloak"];
 const isExtendedType = id => EXTENDED_IDS.includes(id);
 
+// this whole reference box thing is so scuffed but whatever
 const toggleColour = () => {
   const refDiv = document.getElementById("reference_box");
   refDiv.style.display = refDiv.style.display !== "none" ? "none" : "block";
@@ -105,6 +106,7 @@ const convertColours = (input, output) => {
     return `</span><span reservedwordforspaces id='${idValue}'>`;
   });
   
+  // i should add $T here as well but idk how that works i haven't tried it ingame yet
   text = text
     .replace(/\$n/g, "Iris")
     .replace(/\$e/g, "she")
@@ -132,7 +134,7 @@ const autoResize = textarea => {
 // attach autoResize on user input
 document.querySelectorAll("textarea").forEach(ta => {
   ta.addEventListener("input", () => autoResize(ta));
-  autoResize(ta); // initial adjust
+  autoResize(ta);
 });
 
 // autofill longdesc
@@ -232,7 +234,7 @@ el.container.addEventListener("input", e => {
   }
 });
 
-// we need to listen to click events for the dropdown to work oops
+// we need to listen to click events for the dropdown to work
 el.container.addEventListener("click", e => {
   if (e.target.id !== "output") calculateOutput();
 });
@@ -246,6 +248,7 @@ el.short.addEventListener("input", () => {
 });
 
 // listen for clicks to the funny colour toggle button
+// i hate how i implemented this stupid color reference thing but here we are
 document
   .getElementById("colour-toggle-button")
   .addEventListener("click", toggleColour);
