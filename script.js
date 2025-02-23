@@ -61,6 +61,7 @@ const charCount = target => {
 // helper to wrap text at a given limit (ignoring color codes)
 const wrapExtendedText = (text, limit = 80) => {
   // regex matches a color code or any character
+  // the fact that this works(?) is proof that there is no god 
   const regex = /(?:{[A-Za-z0-9])|(?:<[A-Za-z0-9]{3}>)|./g;
   const tokens = text.match(regex) || [];
   let visibleCount = 0;
