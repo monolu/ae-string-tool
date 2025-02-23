@@ -202,7 +202,7 @@ textarea {
   border: none;
   white-space: pre-wrap;
   margin-bottom: -5px;
-  height: 35px;
+  min-height: 35px;
 }
 
 #separator,
