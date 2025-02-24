@@ -206,6 +206,12 @@ textarea {
   min-height: 35px;
 }
 
+textarea[data-code^="extended-@wear"],
+textarea[data-code^="extended-@use"] {
+  min-height: 52px;
+}
+
+
 #separator,
 #target {
   border-radius: 4px;

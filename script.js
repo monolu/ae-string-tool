@@ -182,18 +182,17 @@ const processExtended = definedString => {
   const keyword = el.target.value || el.target.placeholder;
   const allPrefix = el.groupTool.value === "on" ? "all." : "";
   
-  // wrap the extended text (ignoring color codes)
-  const wrappedText = wrapExtendedText(definedString.value, 80);
+  // split the extended text into lines and trim leading whitespace on each line
+  const textLines = definedString.value.split(/\r?\n/).map(line => line.replace(/^\s+/, ""));
+  
   let lines = [];
-
-  // we're not doing @f because of an engine bug that still counts xterm colours when formatting
   if (allPrefix) {
-    lines.push("clipboard clear", "clipboard edit", wrappedText);
-    // if (isExtendedType(definedString.id)) lines.push("@f");
+    lines.push("clipboard clear", "clipboard edit");
+    lines.push(...textLines);
     lines.push("@x", `${tool} ${allPrefix}${keyword} ${code}`);
   } else {
-    lines.push(`${tool} ${allPrefix}${keyword} ${code}`, wrappedText);
-    // if (isExtendedType(definedString.id)) lines.push("@f");
+    lines.push(`${tool} ${allPrefix}${keyword} ${code}`);
+    lines.push(...textLines);
     lines.push("@x");
   }
   return lines;
